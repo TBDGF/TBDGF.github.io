@@ -243,8 +243,8 @@
               <p><strong>何为单调栈？</strong><br>顾名思义，就是单调的栈，我们维护一个栈，栈中的元素保持非严格单调递增或递减。<br>此算法在处理一些问题时莫名其妙（雾）的有效，是一个典型的空间换时间的算法。</p>
 <span id="more"></span>
 
-<h2 id="1-最大的矩形-CSP-201312-3-LeetCode-84"><a href="#1-最大的矩形-CSP-201312-3-LeetCode-84" class="headerlink" title="1. 最大的矩形 [CSP]201312-3 / [LeetCode] 84."></a>1. 最大的矩形 [CSP]201312-3 / [LeetCode] 84.</h2><p>问题描述<br>在横轴上放了n个相邻的矩形，每个矩形的宽度是1，而第i（1 ≤ i ≤ n）个矩形的高度是hi。这n个矩形构成了一个直方图。例如，下图中六个矩形的高度就分别是3, 1, 6, 5, 2, 3。<br><img src="https://img-blog.csdnimg.cn/2020121717482394.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<p>请找出能放在给定直方图里面积最大的矩形，它的边要与坐标轴平行。对于上面给出的例子，最大矩形如下图所示的阴影部分，面积是10。<br><img src="https://img-blog.csdnimg.cn/20201217174844858.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<h2 id="1-最大的矩形-CSP-201312-3-LeetCode-84"><a href="#1-最大的矩形-CSP-201312-3-LeetCode-84" class="headerlink" title="1. 最大的矩形 [CSP]201312-3 / [LeetCode] 84."></a>1. 最大的矩形 [CSP]201312-3 / [LeetCode] 84.</h2><p>问题描述<br>在横轴上放了n个相邻的矩形，每个矩形的宽度是1，而第i（1 ≤ i ≤ n）个矩形的高度是hi。这n个矩形构成了一个直方图。例如，下图中六个矩形的高度就分别是3, 1, 6, 5, 2, 3。<br><img src="https://img-blog.csdnimg.cn/2020121717482394.png" srcset="/img/loading.gif" lazyload></p>
+<p>请找出能放在给定直方图里面积最大的矩形，它的边要与坐标轴平行。对于上面给出的例子，最大矩形如下图所示的阴影部分，面积是10。<br><img src="https://img-blog.csdnimg.cn/20201217174844858.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>输入格式</strong><br>第一行包含一个整数n，即矩形的数量(1 ≤ n ≤ 1000)。<br>第二行包含n 个整数h1, h2, … , hn，相邻的数之间由空格分隔。(1 ≤ hi ≤ 10000)。hi是第i个矩形的高度。<br>　　<br><strong>输出格式</strong><br>输出一行，包含一个整数，即给定直方图内的最大矩形的面积。<br>　　<br><strong>样例输入</strong><br>6<br>3 1 6 5 2 3</p>
 <p><strong>样例输出</strong><br>10</p>
 <p><strong>题解</strong><br>我们可以维持一个单调递增的栈，为了便于计算矩形宽度，我们在栈里存放单个矩形的位置。<br>我们从左到右遍历高度数组，对于每个矩形的高度p，如果p大于等于当前栈顶储存位置的高度q，我们将p的位置也压入栈中；<br>如果p小于q，我们将q弹出，纪录高度，并记录当前遍历到的矩形p与新栈顶位置之差(实际上还需要减1)，作为宽度，并更新结果。<br>为避免栈中剩余矩形，我们可以在数组尾插入一个高度为零的矩形，使栈中所有矩形弹出并更新。</p>
