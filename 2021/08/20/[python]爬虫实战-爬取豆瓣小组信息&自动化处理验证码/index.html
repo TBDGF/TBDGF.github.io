@@ -313,9 +313,9 @@
 <h2 id="验证码处理"><a class="markdownIt-Anchor" href="#验证码处理"></a> 验证码处理</h2>
 <p>由于豆瓣验证码并非可以直接OCR的图片，所以我们需要进行一些处理</p>
 <p>Before:</p>
-<p><img src="./img/captcha-before.jijf" srcset="/img/loading.gif" lazyload alt="captha-before" /></p>
+<p><img src="/img/captcha-before.jijf" srcset="/img/loading.gif" lazyload alt="captha-before" /></p>
 <p>After:</p>
-<p><img src="./img/captcha-after.jpg" srcset="/img/loading.gif" lazyload alt="captha-after" /></p>
+<p><img src="/img/captcha-after.jpg" srcset="/img/loading.gif" lazyload alt="captha-after" /></p>
 <pre><code class=" mermaid">graph LR
 	获取验证码图片
 	--&gt;二值化去除背景
@@ -589,16 +589,16 @@
 
 
 
-  
-
-  
-    <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.10/dist/katex.min.css" />
-  
 
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.10.1/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
 
 
 
