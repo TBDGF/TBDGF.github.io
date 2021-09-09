@@ -14,11 +14,11 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="写了一万年这俩算法，还是记不住，这次强化记忆一下">
+  <meta name="description" content="本文将演示如何在ubuntu上部署mysql，创建角色和赋予权限">
   <meta name="author" content="Allen Ji">
   <meta name="keywords" content="">
   
-  <title>[cpp]gcd&amp;lcm - Allen Ji&#39;s blog</title>
+  <title>[mysql]MySQL ubuntu部署 - Allen Ji&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -175,7 +175,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="[cpp]gcd&lcm">
+            <span class="h2" id="subtitle" title="[mysql]MySQL ubuntu部署">
               
             </span>
 
@@ -185,8 +185,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-07-13 12:38" pubdate>
-        2021年7月13日 下午
+      <time datetime="2021-09-09 18:43" pubdate>
+        2021年9月9日 晚上
       </time>
     </span>
   
@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      136 字
+      511 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      8
        分钟
     </span>
   
@@ -245,28 +245,33 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">[cpp]gcd&amp;lcm</h1>
+            <h1 style="display: none">[mysql]MySQL ubuntu部署</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：8 天前
+                  本文最后更新于：1 分钟前
                 
               </p>
             
             <div class="markdown-body">
-              <p>写了一万年这俩算法，还是记不住，这次强化记忆一下</p>
+              <p>本文将演示如何在ubuntu上部署mysql，创建角色和赋予权限</p>
 <span id="more"></span>
-<h2 id="gcd"><a class="markdownIt-Anchor" href="#gcd"></a> GCD</h2>
-<h3 id="基础循环"><a class="markdownIt-Anchor" href="#基础循环"></a> 基础循环</h3>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span></span>&#123;<br>	<span class="hljs-keyword">int</span> r;<br>    <span class="hljs-keyword">while</span>(b&gt;<span class="hljs-number">0</span>) &#123;<br>        r=a%b;<br>        a=b;<br>        b=r;<br>    &#125;<br>    <span class="hljs-keyword">return</span> a;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="位运算"><a class="markdownIt-Anchor" href="#位运算"></a> 位运算</h3>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span> </span>&#123;<br>    <span class="hljs-keyword">while</span> (b^=a^=b^=a%=b);  <span class="hljs-comment">//a%=b,swap(a,b)</span><br>    <span class="hljs-keyword">return</span> a;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="gcd库函数"><a class="markdownIt-Anchor" href="#gcd库函数"></a> gcd库函数</h3>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span> </span>&#123;<br>	<span class="hljs-keyword">return</span> __gcd(a,b);<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="lcm"><a class="markdownIt-Anchor" href="#lcm"></a> LCM</h2>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>∗</mo><mi>b</mi><mo>=</mo><mi>g</mi><mi>c</mi><mi>d</mi><mo stretchy="false">(</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo>∗</mo><mi>l</mi><mi>c</mi><mi>m</mi><mo stretchy="false">(</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">a*b = gcd(a,b) * lcm(a,b)
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">c</span><span class="mord mathdefault">d</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">c</span><span class="mord mathdefault">m</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span></span></span></span></span></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">lcm</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span></span>&#123;<br>	<span class="hljs-keyword">return</span> a*b/<span class="hljs-built_in">gcd</span>(a,b);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="安装mysql"><a class="markdownIt-Anchor" href="#安装mysql"></a> 安装mysql</h2>
+<p>使用命令行安装mysql</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">sudo apt-<span class="hljs-keyword">get</span> install mysql-<span class="hljs-keyword">server</span><br></code></pre></td></tr></table></figure>
+<h2 id="配置mysql"><a class="markdownIt-Anchor" href="#配置mysql"></a> 配置mysql</h2>
+<h3 id="1初始化"><a class="markdownIt-Anchor" href="#1初始化"></a> 1.初始化</h3>
+<p>命令行</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo mysql_secure_installation</span><br></code></pre></td></tr></table></figure>
+<p>配置项如下:</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">VALIDATE PASSWORD COMPONENT can be used <span class="hljs-built_in">to</span> test passwords<br><span class="hljs-keyword">and</span> improve security. It checks <span class="hljs-keyword">the</span> strength <span class="hljs-keyword">of</span> password<br><span class="hljs-keyword">and</span> allows <span class="hljs-keyword">the</span> users <span class="hljs-built_in">to</span> <span class="hljs-built_in">set</span> only those passwords which are<br>secure enough. Would you like <span class="hljs-built_in">to</span> setup VALIDATE PASSWORD component?<br><br>Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other key <span class="hljs-keyword">for</span> No: y<span class="hljs-comment">	//是否开启强密码，避免出现过弱密码，这里选择Y</span><br><br>There are <span class="hljs-literal">three</span> levels <span class="hljs-keyword">of</span> password validation policy:<br><br>LOW    Length &gt;= <span class="hljs-number">8</span><br>MEDIUM Length &gt;= <span class="hljs-number">8</span>, <span class="hljs-keyword">numeric</span>, mixed <span class="hljs-keyword">case</span>, <span class="hljs-keyword">and</span> special <span class="hljs-keyword">characters</span><br>STRONG Length &gt;= <span class="hljs-number">8</span>, <span class="hljs-keyword">numeric</span>, mixed <span class="hljs-keyword">case</span>, special <span class="hljs-keyword">characters</span> <span class="hljs-keyword">and</span> dictionary                  <span class="hljs-built_in">file</span><br><br>Please enter <span class="hljs-number">0</span> = LOW, <span class="hljs-number">1</span> = MEDIUM <span class="hljs-keyword">and</span> <span class="hljs-number">2</span> = STRONG: <span class="hljs-number">1</span><span class="hljs-comment">	//选择密码强度，这里选择1</span><br>Please <span class="hljs-built_in">set</span> <span class="hljs-keyword">the</span> password <span class="hljs-keyword">for</span> root here.<br><br>New password: <span class="hljs-comment">	//输入密码</span><br><br>Re-enter <span class="hljs-built_in">new</span> password: <span class="hljs-comment">	//再次输入密码</span><br><br>Estimated strength <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> password: <span class="hljs-number">100</span> <br>Do you wish <span class="hljs-built_in">to</span> continue <span class="hljs-keyword">with</span> <span class="hljs-keyword">the</span> password provided?(Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other key <span class="hljs-keyword">for</span> No) : y<span class="hljs-comment">	//确认或再次输入其他密码</span><br><br>By default, <span class="hljs-keyword">a</span> MySQL installation has <span class="hljs-keyword">an</span> anonymous user,<br>allowing anyone <span class="hljs-built_in">to</span> <span class="hljs-built_in">log</span> <span class="hljs-keyword">into</span> MySQL <span class="hljs-keyword">without</span> having <span class="hljs-built_in">to</span> have<br><span class="hljs-keyword">a</span> user account created <span class="hljs-keyword">for</span> them. This is intended only <span class="hljs-keyword">for</span><br>testing, <span class="hljs-keyword">and</span> <span class="hljs-built_in">to</span> make <span class="hljs-keyword">the</span> installation go <span class="hljs-keyword">a</span> bit smoother.<br>You should remove them <span class="hljs-keyword">before</span> moving <span class="hljs-keyword">into</span> <span class="hljs-keyword">a</span> production<br>environment.<br><br>Remove anonymous users? (Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other key <span class="hljs-keyword">for</span> No) : y<span class="hljs-comment">	//是否移除匿名用户</span><br>Success.<br><br><br>Normally, root should only be allowed <span class="hljs-built_in">to</span> connect <span class="hljs-built_in">from</span><br><span class="hljs-string">&#x27;localhost&#x27;</span>. This ensures that someone cannot guess <span class="hljs-keyword">at</span><br><span class="hljs-keyword">the</span> root password <span class="hljs-built_in">from</span> <span class="hljs-keyword">the</span> network.<br><br>Disallow root login remotely? (Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other key <span class="hljs-keyword">for</span> No) : n<span class="hljs-comment">	//是否要禁止远程登陆，选择否</span><br><br> ... skipping.<br>By default, MySQL comes <span class="hljs-keyword">with</span> <span class="hljs-keyword">a</span> database named <span class="hljs-string">&#x27;test&#x27;</span> that<br>anyone can access. This is also intended only <span class="hljs-keyword">for</span> testing,<br><span class="hljs-keyword">and</span> should be removed <span class="hljs-keyword">before</span> moving <span class="hljs-keyword">into</span> <span class="hljs-keyword">a</span> production<br>environment.<br><br><br>Remove test database <span class="hljs-keyword">and</span> access <span class="hljs-built_in">to</span> <span class="hljs-keyword">it</span>? (Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other key <span class="hljs-keyword">for</span> No) : y<span class="hljs-comment">	//是否移除初始数据库</span><br> - Dropping test database...<br>Success.<br><br> - Removing privileges <span class="hljs-keyword">on</span> <span class="hljs-title">test</span> <span class="hljs-title">database</span>...<br>Success.<br><br>Reloading <span class="hljs-keyword">the</span> privilege tables will ensure that all changes<br>made so far will take effect immediately.<br><br>Reload privilege tables now? (Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other key <span class="hljs-keyword">for</span> No) : y<span class="hljs-comment">	//是否重载权限</span><br>Success.<br><br>All done! <br></code></pre></td></tr></table></figure>
+<h3 id="2配置用户"><a class="markdownIt-Anchor" href="#2配置用户"></a> 2.配置用户</h3>
+<p>用root进入mysql</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">sudo mysql -uroot -<span class="hljs-selector-tag">p</span><br></code></pre></td></tr></table></figure>
+<p><strong>创建用户</strong></p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> MyUser@<span class="hljs-string">&#x27;localhost&#x27;</span> identified <span class="hljs-keyword">by</span> <span class="hljs-string">&#x27;MyPassword&#x27;</span>;<br></code></pre></td></tr></table></figure>
+<p><strong>授权（授予所有数据库的所有权限）</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> MyUser@<span class="hljs-string">&#x27;localhost&#x27;</span>;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -277,9 +282,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                      <a class="hover-with-bg" href="/tags/mysql/">mysql</a>
                     
-                      <a class="hover-with-bg" href="/tags/cpp/">cpp</a>
+                      <a class="hover-with-bg" href="/tags/ubuntu/">ubuntu</a>
                     
                   </div>
                 
@@ -296,18 +301,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/07/14/%5Bcpp%5D%E5%8D%95%E8%B0%83%E6%A0%88/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">[cpp]单调栈</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/07/11/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2021/08/20/%5Bpython%5D%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E4%BF%A1%E6%81%AF&amp;%E8%87%AA%E5%8A%A8%E5%8C%96%E5%A4%84%E7%90%86%E9%AA%8C%E8%AF%81%E7%A0%81/">
+                        <span class="hidden-mobile">[python]爬虫实战-爬取豆瓣小组信息&自动化处理验证码</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -523,13 +522,6 @@
 
 
 
-
-  
-
-  
-    <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.10/dist/katex.min.css" />
-  
 
 
 
