@@ -16,15 +16,15 @@
   <meta name="description" content="">
   <meta name="author" content="Allen Ji">
   <meta name="keywords" content="">
-  <meta name="description" content="剑指 Offer 09. 用两个栈实现队列  详情 定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。 示例 12345678MinStack minStack &#x3D; new MinStack();minStack.push(-2);minStack.push(0);minStack.push(-3">
+  <meta name="description" content="剑指 Offer 09. 用两个栈实现队列  描述 定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。 示例 12345678MinStack minStack &#x3D; new MinStack();minStack.push(-2);minStack.push(0);minStack.push(-3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="剑指Offer Day-01">
 <meta property="og:url" content="http://example.com/p/9eea/index.html">
 <meta property="og:site_name" content="Allen Ji&#39;s blog">
-<meta property="og:description" content="剑指 Offer 09. 用两个栈实现队列  详情 定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。 示例 12345678MinStack minStack &#x3D; new MinStack();minStack.push(-2);minStack.push(0);minStack.push(-3">
+<meta property="og:description" content="剑指 Offer 09. 用两个栈实现队列  描述 定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。 示例 12345678MinStack minStack &#x3D; new MinStack();minStack.push(-2);minStack.push(0);minStack.push(-3">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-24T09:08:35.000Z">
-<meta property="article:modified_time" content="2022-02-24T10:13:04.341Z">
+<meta property="article:modified_time" content="2022-02-24T13:37:58.818Z">
 <meta property="article:author" content="Allen Ji">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="cpp">
@@ -259,14 +259,14 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 分钟前
+                  本文最后更新于：2 小时前
                 
               </p>
             
             <div class="markdown-body">
               <span id="more"></span>
 <h2 id="剑指-offer-09-用两个栈实现队列"><a class="markdownIt-Anchor" href="#剑指-offer-09-用两个栈实现队列"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/">剑指 Offer 09. 用两个栈实现队列</a></h2>
-<h3 id="详情"><a class="markdownIt-Anchor" href="#详情"></a> 详情</h3>
+<h3 id="描述"><a class="markdownIt-Anchor" href="#描述"></a> 描述</h3>
 <p>定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。</p>
 <p><strong>示例</strong></p>
 <figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs pf">M<span class="hljs-keyword">in</span>Stack <span class="hljs-keyword">min</span>Stack = new M<span class="hljs-keyword">in</span>Stack();<br><span class="hljs-keyword">min</span>Stack.push(-<span class="hljs-number">2</span>);<br><span class="hljs-keyword">min</span>Stack.push(<span class="hljs-number">0</span>);<br><span class="hljs-keyword">min</span>Stack.push(-<span class="hljs-number">3</span>);<br><span class="hljs-keyword">min</span>Stack.<span class="hljs-keyword">min</span>();   --&gt; 返回 -<span class="hljs-number">3</span>.<br><span class="hljs-keyword">min</span>Stack.pop();<br><span class="hljs-keyword">min</span>Stack.top();      --&gt; 返回 <span class="hljs-number">0</span>.<br><span class="hljs-keyword">min</span>Stack.<span class="hljs-keyword">min</span>();   --&gt; 返回 -<span class="hljs-number">2</span>.<br></code></pre></td></tr></table></figure>
@@ -280,7 +280,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CQueue</span> &#123;</span><br>    stack&lt;<span class="hljs-keyword">int</span>&gt; stack_in, stack_out;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">CQueue</span>() &#123;<br>        <span class="hljs-keyword">while</span> (!stack_in.<span class="hljs-built_in">empty</span>()) &#123;<br>            stack_in.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>        <span class="hljs-keyword">while</span> (!stack_out.<span class="hljs-built_in">empty</span>()) &#123;<br>            stack_out.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">appendTail</span><span class="hljs-params">(<span class="hljs-keyword">int</span> value)</span> </span>&#123;<br>        stack_in.<span class="hljs-built_in">push</span>(value);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">deleteHead</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//输出栈为空，将输入栈倒入输出栈中</span><br>        <span class="hljs-keyword">if</span> (stack_out.<span class="hljs-built_in">empty</span>()) &#123;<br>            <span class="hljs-keyword">while</span> (!stack_in.<span class="hljs-built_in">empty</span>()) &#123;<br>                stack_out.<span class="hljs-built_in">push</span>(stack_in.<span class="hljs-built_in">top</span>());<br>                stack_in.<span class="hljs-built_in">pop</span>();<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">//如果倾倒完，输出栈还为空，说明队列为空</span><br>        <span class="hljs-keyword">if</span> (stack_out.<span class="hljs-built_in">empty</span>()) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">int</span> ret = stack_out.<span class="hljs-built_in">top</span>();<br>            stack_out.<span class="hljs-built_in">pop</span>();<br>            <span class="hljs-keyword">return</span> ret;<br>        &#125;<br>    &#125;<br>&#125;;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Your CQueue object will be instantiated and called as such:</span><br><span class="hljs-comment"> * CQueue* obj = new CQueue();</span><br><span class="hljs-comment"> * obj-&gt;appendTail(value);</span><br><span class="hljs-comment"> * int param_2 = obj-&gt;deleteHead();</span><br><span class="hljs-comment"> */</span><br></code></pre></td></tr></table></figure>
 <hr />
 <h2 id="剑指-offer-30-包含min函数的栈"><a class="markdownIt-Anchor" href="#剑指-offer-30-包含min函数的栈"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/bao-han-minhan-shu-de-zhan-lcof/">剑指 Offer 30. 包含min函数的栈</a></h2>
-<h3 id="详情-2"><a class="markdownIt-Anchor" href="#详情-2"></a> 详情</h3>
+<h3 id="描述-2"><a class="markdownIt-Anchor" href="#描述-2"></a> 描述</h3>
 <p>定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。</p>
 <p><strong>示例</strong></p>
 <figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs pf">M<span class="hljs-keyword">in</span>Stack <span class="hljs-keyword">min</span>Stack = new M<span class="hljs-keyword">in</span>Stack();<br><span class="hljs-keyword">min</span>Stack.push(-<span class="hljs-number">2</span>);<br><span class="hljs-keyword">min</span>Stack.push(<span class="hljs-number">0</span>);<br><span class="hljs-keyword">min</span>Stack.push(-<span class="hljs-number">3</span>);<br><span class="hljs-keyword">min</span>Stack.<span class="hljs-keyword">min</span>();   --&gt; 返回 -<span class="hljs-number">3</span>.<br><span class="hljs-keyword">min</span>Stack.pop();<br><span class="hljs-keyword">min</span>Stack.top();      --&gt; 返回 <span class="hljs-number">0</span>.<br><span class="hljs-keyword">min</span>Stack.<span class="hljs-keyword">min</span>();   --&gt; 返回 -<span class="hljs-number">2</span>.<br></code></pre></td></tr></table></figure>
@@ -325,6 +325,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/p/9370/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">面试算法题-01</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
