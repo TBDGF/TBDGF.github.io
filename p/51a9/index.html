@@ -13,28 +13,24 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="何为单调栈？
-顾名思义，就是单调的栈，我们维护一个栈，栈中的元素保持非严格单调递增或递减。">
+  <meta name="description" content="本文旨在帮助读者进行油猴插件的安装，由于Edge平台没有需要翻墙的阻碍，所以我们选择他进行介绍">
   <meta name="author" content="Allen Ji">
   <meta name="keywords" content="">
-  <meta name="description" content="何为单调栈？ 顾名思义，就是单调的栈，我们维护一个栈，栈中的元素保持非严格单调递增或递减。">
+  <meta name="description" content="本文旨在帮助读者进行油猴插件的安装，由于Edge平台没有需要翻墙的阻碍，所以我们选择他进行介绍">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[cpp]单调栈">
-<meta property="og:url" content="http://example.com/2021/07/14/[cpp]%E5%8D%95%E8%B0%83%E6%A0%88/index.html">
+<meta property="og:title" content="[tampermonkey]Edge油猴插件安装教程">
+<meta property="og:url" content="http://example.com/p/51a9/index.html">
 <meta property="og:site_name" content="Allen Ji&#39;s blog">
-<meta property="og:description" content="何为单调栈？ 顾名思义，就是单调的栈，我们维护一个栈，栈中的元素保持非严格单调递增或递减。">
+<meta property="og:description" content="本文旨在帮助读者进行油猴插件的安装，由于Edge平台没有需要翻墙的阻碍，所以我们选择他进行介绍">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020121717482394.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20201217174844858.png">
-<meta property="article:published_time" content="2021-07-14T08:17:07.000Z">
-<meta property="article:modified_time" content="2021-12-11T10:28:25.796Z">
+<meta property="article:published_time" content="2021-08-08T09:24:07.000Z">
+<meta property="article:modified_time" content="2021-10-27T03:37:47.877Z">
 <meta property="article:author" content="Allen Ji">
-<meta property="article:tag" content="算法">
-<meta property="article:tag" content="cpp">
+<meta property="article:tag" content="实用">
+<meta property="article:tag" content="Tampermonkey">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2020121717482394.png">
   
-  <title>[cpp]单调栈 - Allen Ji&#39;s blog</title>
+  <title>[tampermonkey]Edge油猴插件安装教程 - Allen Ji&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -192,7 +188,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="[cpp]单调栈">
+            <span class="h2" id="subtitle" title="[tampermonkey]Edge油猴插件安装教程">
               
             </span>
 
@@ -202,8 +198,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-07-14 16:17" pubdate>
-        2021年7月14日 下午
+      <time datetime="2021-08-08 17:24" pubdate>
+        2021年8月8日 下午
       </time>
     </span>
   
@@ -213,7 +209,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      923 字
     </span>
   
 
@@ -222,7 +218,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      3 分钟
     </span>
   
 
@@ -259,56 +255,49 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">[cpp]单调栈</h1>
+            <h1 style="display: none">[tampermonkey]Edge油猴插件安装教程</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 个月前
+                  本文最后更新于：4 个月前
                 
               </p>
             
             <div class="markdown-body">
-              <p><strong>何为单调栈？</strong><br />
-顾名思义，就是单调的栈，我们维护一个栈，栈中的元素保持非严格单调递增或递减。</p>
+              <p>本文旨在帮助读者进行油猴插件的安装，由于Edge平台没有需要翻墙的阻碍，所以我们选择他进行介绍</p>
 <span id="more"></span>
-<p>此算法在处理一些问题时莫名其妙（雾）的有效，是一个典型的空间换时间的算法。</p>
-<h2 id="1-最大的矩形-csp201312-3-leetcode-84"><a class="markdownIt-Anchor" href="#1-最大的矩形-csp201312-3-leetcode-84"></a> 1. 最大的矩形 [CSP]201312-3 / [LeetCode] 84.</h2>
-<p>问题描述<br />
-在横轴上放了n个相邻的矩形，每个矩形的宽度是1，而第i（1 ≤ i ≤ n）个矩形的高度是hi。这n个矩形构成了一个直方图。例如，下图中六个矩形的高度就分别是3, 1, 6, 5, 2, 3。<br />
-<img src="https://img-blog.csdnimg.cn/2020121717482394.png" srcset="/img/loading.gif" lazyload alt="" /></p>
-<p>请找出能放在给定直方图里面积最大的矩形，它的边要与坐标轴平行。对于上面给出的例子，最大矩形如下图所示的阴影部分，面积是10。<br />
-<img src="https://img-blog.csdnimg.cn/20201217174844858.png" srcset="/img/loading.gif" lazyload alt="" /></p>
-<p><strong>输入格式</strong><br />
-第一行包含一个整数n，即矩形的数量(1 ≤ n ≤ 1000)。<br />
-第二行包含n 个整数h1, h2, … , hn，相邻的数之间由空格分隔。(1 ≤ hi ≤ 10000)。hi是第i个矩形的高度。<br />
-　　<br />
-<strong>输出格式</strong><br />
-输出一行，包含一个整数，即给定直方图内的最大矩形的面积。<br />
-　　<br />
-<strong>样例输入</strong><br />
-6<br />
-3 1 6 5 2 3</p>
-<p><strong>样例输出</strong><br />
-10</p>
-<p><strong>题解</strong><br />
-我们可以维持一个单调递增的栈，为了便于计算矩形宽度，我们在栈里存放单个矩形的位置。<br />
-我们从左到右遍历高度数组，对于每个矩形的高度p，如果p大于等于当前栈顶储存位置的高度q，我们将p的位置也压入栈中；<br />
-如果p小于q，我们将q弹出，纪录高度，并记录当前遍历到的矩形p与新栈顶位置之差(实际上还需要减1)，作为宽度，并更新结果。<br />
-为避免栈中剩余矩形，我们可以在数组尾插入一个高度为零的矩形，使栈中所有矩形弹出并更新。</p>
-<p><strong>代码实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">largestRectangleArea</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; heights)</span> </span>&#123;<br>	heights.<span class="hljs-built_in">push_back</span>(<span class="hljs-number">0</span>);		<span class="hljs-comment">//插入空矩形，弹出栈中剩余矩形</span><br>	<span class="hljs-keyword">int</span> len = heights.<span class="hljs-built_in">size</span>(), area = <span class="hljs-number">0</span>, pre_index, height, width;<br>	stack&lt;<span class="hljs-keyword">int</span>&gt; indices;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) &#123;<br>		<span class="hljs-keyword">while</span> (!indices.<span class="hljs-built_in">empty</span>() &amp;&amp; heights[indices.<span class="hljs-built_in">top</span>()] &gt; heights[i]) &#123;	<span class="hljs-comment">//检查栈是否为空</span><br>			pre_index = indices.<span class="hljs-built_in">top</span>();		<span class="hljs-comment">//储存栈顶矩形的位置</span><br>			indices.<span class="hljs-built_in">pop</span>();<br>			height = heights[pre_index];	<span class="hljs-comment">//储存高度</span><br>			<span class="hljs-keyword">if</span> (indices.<span class="hljs-built_in">empty</span>()) &#123;			<span class="hljs-comment">//避免操作空栈</span><br>				width = i;					<span class="hljs-comment">//若弹出至栈为空，因栈的递增性，边界可向左延伸至0</span><br>			&#125; <span class="hljs-keyword">else</span> &#123;<br>				width = i - indices.<span class="hljs-built_in">top</span>() - <span class="hljs-number">1</span>;		<span class="hljs-comment">//储存宽度</span><br>			&#125;<br>			area = area &gt; (width * height) ? area : (width * height);		<span class="hljs-comment">//更新结果</span><br>		&#125;<br>		indices.<span class="hljs-built_in">push</span>(i);<br>	&#125;<br>	<span class="hljs-keyword">return</span> area;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="2每日温度-leetcode-739"><a class="markdownIt-Anchor" href="#2每日温度-leetcode-739"></a> 2.每日温度 [LeetCode] 739.</h2>
-<p><strong>问题描述</strong></p>
-<p>请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 0 来代替。<br />
-例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。<br />
-提示：气温 列表长度的范围是 [1, 30000]。每个气温的值的均为华氏度，都是在 [30, 100] 范围内的整数。</p>
-<p><strong>题解</strong></p>
-<p>我们在这里维持一个单调递减的栈，为了便于计算天数差，我们在栈中储存位置(即日期)。<br />
-此题相较上题简单一些，故不在此赘述。<br />
-<strong>注意：</strong><br />
-此题与上题不同的是，若栈中有剩余的日期，说明此后没有更暖和的日期，故无需再弹出。</p>
-<p><strong>代码实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">dailyTemperatures</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; T)</span> </span>&#123;<br>	<span class="hljs-keyword">int</span> n = T.<span class="hljs-built_in">size</span>(), pre_index;<br>	<span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">ans</span><span class="hljs-params">(n)</span></span>;<br>	stack&lt;<span class="hljs-keyword">int</span>&gt; indices;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>		<span class="hljs-keyword">while</span> (!indices.<span class="hljs-built_in">empty</span>() &amp;&amp; T[indices.<span class="hljs-built_in">top</span>()] &lt; T[i]) &#123;<br>			pre_index = indices.<span class="hljs-built_in">top</span>();<br>			indices.<span class="hljs-built_in">pop</span>();<br>			ans[pre_index] = i - pre_index;		<span class="hljs-comment">//计算日期差</span><br>		&#125;<br>		indices.<span class="hljs-built_in">push</span>(i);<br>	&#125;<br>	<span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="从应用商店安装油猴"><a class="markdownIt-Anchor" href="#从应用商店安装油猴"></a> 从应用商店安装油猴</h2>
+<p>使用最新版的Edge浏览器</p>
+<p>打开<a target="_blank" rel="noopener" href="https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd?source=sfw">Tampermonkey - Microsoft Edge Addons</a>，并进行安装</p>
+<p>![](/img/[tampermonkey] Edge油猴插件安装教程/image-20210808173309417.png)</p>
+<p>安装成功后，应该可以从右上角看到插件的图标</p>
+<p>![](/img/[tampermonkey] Edge油猴插件安装教程/image-20210808173555488.png)</p>
+<h2 id="从脚本网站加载脚本"><a class="markdownIt-Anchor" href="#从脚本网站加载脚本"></a> 从脚本网站加载脚本</h2>
+<h3 id="greasyfork"><a class="markdownIt-Anchor" href="#greasyfork"></a> GreasyFork</h3>
+<p><strong>通过链接打开</strong></p>
+<p><a target="_blank" rel="noopener" href="https://greasyfork.org/zh-CN">Greasy Fork - 安全、实用的用户脚本大全</a></p>
+<p><strong>通过油猴插件打开</strong></p>
+<p>点击插件，选择&quot;获取新脚本&quot;</p>
+<p>![](/img/[tampermonkey] Edge油猴插件安装教程/image-20210808174148253.png)</p>
+<p>然后在下面找到并点选GreasyFork链接</p>
+<p>![](/img/[tampermonkey] Edge油猴插件安装教程/image-20210808174315114.png)</p>
+<p>搜索自己需要的插件即可</p>
+<h3 id="找脚本"><a class="markdownIt-Anchor" href="#找脚本"></a> 找脚本</h3>
+<p><strong>通过链接打开</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhaojiaoben.cn/">找脚本——找任何你需要的脚本 (zhaojiaoben.cn)</a></p>
+<p>搜索自己需要的插件即可</p>
+<h2 id="安装脚本"><a class="markdownIt-Anchor" href="#安装脚本"></a> 安装脚本</h2>
+<p>上面两个脚本网站安装脚本时都会弹出新界面，点击安装即可</p>
+<p><strong>我们以刷课脚本为例</strong></p>
+<p>打开<a target="_blank" rel="noopener" href="https://www.zhaojiaoben.cn/">找脚本——找任何你需要的脚本 (zhaojiaoben.cn)</a></p>
+<p>首页就有该脚本，点击直接安装</p>
+<p>![](/img/[tampermonkey] Edge油猴插件安装教程/image-20210808175933672.png)</p>
+<p>然后在弹出的界面选择安装即可</p>
+<h2 id="管理脚本"><a class="markdownIt-Anchor" href="#管理脚本"></a> 管理脚本</h2>
+<p>当脚本安装后，到可用网页会自动生效，油猴插件图标会自动亮起</p>
+<p>![](/img/[tampermonkey] Edge油猴插件安装教程/image-20210808174913530.png)</p>
+<p>我们点击插件后，可以管理当前页面生效的脚本，也可以点击&quot;管理面板&quot;管理所有脚本</p>
+<p>![](/img/[tampermonkey] Edge油猴插件安装教程/image-20210808174955539.png)</p>
 
             </div>
             <hr>
@@ -319,9 +308,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                      <a class="hover-with-bg" href="/tags/%E5%AE%9E%E7%94%A8/">实用</a>
                     
-                      <a class="hover-with-bg" href="/tags/cpp/">cpp</a>
+                      <a class="hover-with-bg" href="/tags/Tampermonkey/">Tampermonkey</a>
                     
                   </div>
                 
@@ -338,9 +327,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/08/07/%5Bnginx%5Dnginx%20ubuntu%E9%83%A8%E7%BD%B2/">
+                      <a href="/p/7f16/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">[nginx]Nginx ubuntu部署</span>
+                        <span class="hidden-mobile">[python]爬虫实战-爬取豆瓣小组信息&自动化处理验证码</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -348,8 +337,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/07/13/%5Bcpp%5Dgcd&amp;lcm/">
-                        <span class="hidden-mobile">[cpp]gcd&lcm</span>
+                      <a href="/p/740/">
+                        <span class="hidden-mobile">[nginx]Nginx ubuntu部署</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

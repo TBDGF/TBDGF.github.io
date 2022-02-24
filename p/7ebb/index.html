@@ -13,24 +13,28 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="本文将演示如何在ubuntu上部署mysql，创建角色和赋予权限">
+  <meta name="description" content="何为单调栈？
+顾名思义，就是单调的栈，我们维护一个栈，栈中的元素保持非严格单调递增或递减。">
   <meta name="author" content="Allen Ji">
   <meta name="keywords" content="">
-  <meta name="description" content="本文将演示如何在ubuntu上部署mysql，创建角色和赋予权限">
+  <meta name="description" content="何为单调栈？ 顾名思义，就是单调的栈，我们维护一个栈，栈中的元素保持非严格单调递增或递减。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[mysql]MySQL ubuntu部署">
-<meta property="og:url" content="http://example.com/2021/09/09/[mysql]mysql%20ubuntu%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:title" content="[cpp]单调栈">
+<meta property="og:url" content="http://example.com/p/7ebb/index.html">
 <meta property="og:site_name" content="Allen Ji&#39;s blog">
-<meta property="og:description" content="本文将演示如何在ubuntu上部署mysql，创建角色和赋予权限">
+<meta property="og:description" content="何为单调栈？ 顾名思义，就是单调的栈，我们维护一个栈，栈中的元素保持非严格单调递增或递减。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-09T10:43:31.000Z">
-<meta property="article:modified_time" content="2021-09-09T11:08:40.608Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020121717482394.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201217174844858.png">
+<meta property="article:published_time" content="2021-07-14T08:17:07.000Z">
+<meta property="article:modified_time" content="2021-12-11T10:28:25.796Z">
 <meta property="article:author" content="Allen Ji">
-<meta property="article:tag" content="mysql">
-<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="cpp">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2020121717482394.png">
   
-  <title>[mysql]MySQL ubuntu部署 - Allen Ji&#39;s blog</title>
+  <title>[cpp]单调栈 - Allen Ji&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -188,7 +192,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="[mysql]MySQL ubuntu部署">
+            <span class="h2" id="subtitle" title="[cpp]单调栈">
               
             </span>
 
@@ -198,8 +202,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-09-09 18:43" pubdate>
-        2021年9月9日 晚上
+      <time datetime="2021-07-14 16:17" pubdate>
+        2021年7月14日 下午
       </time>
     </span>
   
@@ -209,7 +213,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.2k 字
+      1.9k 字
     </span>
   
 
@@ -218,7 +222,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7 分钟
+      6 分钟
     </span>
   
 
@@ -255,33 +259,56 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">[mysql]MySQL ubuntu部署</h1>
+            <h1 style="display: none">[cpp]单调栈</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：5 个月前
+                  本文最后更新于：2 个月前
                 
               </p>
             
             <div class="markdown-body">
-              <p>本文将演示如何在ubuntu上部署mysql，创建角色和赋予权限</p>
+              <p><strong>何为单调栈？</strong><br />
+顾名思义，就是单调的栈，我们维护一个栈，栈中的元素保持非严格单调递增或递减。</p>
 <span id="more"></span>
-<h2 id="安装mysql"><a class="markdownIt-Anchor" href="#安装mysql"></a> 安装mysql</h2>
-<p>使用命令行安装mysql</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">sudo apt-<span class="hljs-keyword">get</span> install mysql-<span class="hljs-keyword">server</span><br></code></pre></td></tr></table></figure>
-<h2 id="配置mysql"><a class="markdownIt-Anchor" href="#配置mysql"></a> 配置mysql</h2>
-<h3 id="1初始化"><a class="markdownIt-Anchor" href="#1初始化"></a> 1.初始化</h3>
-<p>命令行</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo mysql_secure_installation</span><br></code></pre></td></tr></table></figure>
-<p>配置项如下:</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">VALIDATE PASSWORD COMPONENT can be used <span class="hljs-built_in">to</span> test passwords<br><span class="hljs-keyword">and</span> improve security. It checks <span class="hljs-keyword">the</span> strength <span class="hljs-keyword">of</span> password<br><span class="hljs-keyword">and</span> allows <span class="hljs-keyword">the</span> users <span class="hljs-built_in">to</span> <span class="hljs-built_in">set</span> only those passwords which are<br>secure enough. Would you like <span class="hljs-built_in">to</span> setup VALIDATE PASSWORD component?<br><br>Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other key <span class="hljs-keyword">for</span> No: y<span class="hljs-comment">	//是否开启强密码，避免出现过弱密码，这里选择Y</span><br><br>There are <span class="hljs-literal">three</span> levels <span class="hljs-keyword">of</span> password validation policy:<br><br>LOW    Length &gt;= <span class="hljs-number">8</span><br>MEDIUM Length &gt;= <span class="hljs-number">8</span>, <span class="hljs-keyword">numeric</span>, mixed <span class="hljs-keyword">case</span>, <span class="hljs-keyword">and</span> special <span class="hljs-keyword">characters</span><br>STRONG Length &gt;= <span class="hljs-number">8</span>, <span class="hljs-keyword">numeric</span>, mixed <span class="hljs-keyword">case</span>, special <span class="hljs-keyword">characters</span> <span class="hljs-keyword">and</span> dictionary                  <span class="hljs-built_in">file</span><br><br>Please enter <span class="hljs-number">0</span> = LOW, <span class="hljs-number">1</span> = MEDIUM <span class="hljs-keyword">and</span> <span class="hljs-number">2</span> = STRONG: <span class="hljs-number">1</span><span class="hljs-comment">	//选择密码强度，这里选择1</span><br>Please <span class="hljs-built_in">set</span> <span class="hljs-keyword">the</span> password <span class="hljs-keyword">for</span> root here.<br><br>New password: <span class="hljs-comment">	//输入密码</span><br><br>Re-enter <span class="hljs-built_in">new</span> password: <span class="hljs-comment">	//再次输入密码</span><br><br>Estimated strength <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> password: <span class="hljs-number">100</span> <br>Do you wish <span class="hljs-built_in">to</span> continue <span class="hljs-keyword">with</span> <span class="hljs-keyword">the</span> password provided?(Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other key <span class="hljs-keyword">for</span> No) : y<span class="hljs-comment">	//确认或再次输入其他密码</span><br><br>By default, <span class="hljs-keyword">a</span> MySQL installation has <span class="hljs-keyword">an</span> anonymous user,<br>allowing anyone <span class="hljs-built_in">to</span> <span class="hljs-built_in">log</span> <span class="hljs-keyword">into</span> MySQL <span class="hljs-keyword">without</span> having <span class="hljs-built_in">to</span> have<br><span class="hljs-keyword">a</span> user account created <span class="hljs-keyword">for</span> them. This is intended only <span class="hljs-keyword">for</span><br>testing, <span class="hljs-keyword">and</span> <span class="hljs-built_in">to</span> make <span class="hljs-keyword">the</span> installation go <span class="hljs-keyword">a</span> bit smoother.<br>You should remove them <span class="hljs-keyword">before</span> moving <span class="hljs-keyword">into</span> <span class="hljs-keyword">a</span> production<br>environment.<br><br>Remove anonymous users? (Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other key <span class="hljs-keyword">for</span> No) : y<span class="hljs-comment">	//是否移除匿名用户</span><br>Success.<br><br><br>Normally, root should only be allowed <span class="hljs-built_in">to</span> connect <span class="hljs-built_in">from</span><br><span class="hljs-string">&#x27;localhost&#x27;</span>. This ensures that someone cannot guess <span class="hljs-keyword">at</span><br><span class="hljs-keyword">the</span> root password <span class="hljs-built_in">from</span> <span class="hljs-keyword">the</span> network.<br><br>Disallow root login remotely? (Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other key <span class="hljs-keyword">for</span> No) : n<span class="hljs-comment">	//是否要禁止远程登陆，选择否</span><br><br> ... skipping.<br>By default, MySQL comes <span class="hljs-keyword">with</span> <span class="hljs-keyword">a</span> database named <span class="hljs-string">&#x27;test&#x27;</span> that<br>anyone can access. This is also intended only <span class="hljs-keyword">for</span> testing,<br><span class="hljs-keyword">and</span> should be removed <span class="hljs-keyword">before</span> moving <span class="hljs-keyword">into</span> <span class="hljs-keyword">a</span> production<br>environment.<br><br><br>Remove test database <span class="hljs-keyword">and</span> access <span class="hljs-built_in">to</span> <span class="hljs-keyword">it</span>? (Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other key <span class="hljs-keyword">for</span> No) : y<span class="hljs-comment">	//是否移除初始数据库</span><br> - Dropping test database...<br>Success.<br><br> - Removing privileges <span class="hljs-keyword">on</span> <span class="hljs-title">test</span> <span class="hljs-title">database</span>...<br>Success.<br><br>Reloading <span class="hljs-keyword">the</span> privilege tables will ensure that all changes<br>made so far will take effect immediately.<br><br>Reload privilege tables now? (Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other key <span class="hljs-keyword">for</span> No) : y<span class="hljs-comment">	//是否重载权限</span><br>Success.<br><br>All done! <br></code></pre></td></tr></table></figure>
-<h3 id="2配置用户"><a class="markdownIt-Anchor" href="#2配置用户"></a> 2.配置用户</h3>
-<p>用root进入mysql</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">sudo mysql -uroot -<span class="hljs-selector-tag">p</span><br></code></pre></td></tr></table></figure>
-<p><strong>创建用户</strong></p>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> MyUser@<span class="hljs-string">&#x27;localhost&#x27;</span> identified <span class="hljs-keyword">by</span> <span class="hljs-string">&#x27;MyPassword&#x27;</span>;<br></code></pre></td></tr></table></figure>
-<p><strong>授权（授予所有数据库的所有权限）</strong></p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> MyUser@<span class="hljs-string">&#x27;localhost&#x27;</span>;<br></code></pre></td></tr></table></figure>
+<p>此算法在处理一些问题时莫名其妙（雾）的有效，是一个典型的空间换时间的算法。</p>
+<h2 id="1-最大的矩形-csp201312-3-leetcode-84"><a class="markdownIt-Anchor" href="#1-最大的矩形-csp201312-3-leetcode-84"></a> 1. 最大的矩形 [CSP]201312-3 / [LeetCode] 84.</h2>
+<p>问题描述<br />
+在横轴上放了n个相邻的矩形，每个矩形的宽度是1，而第i（1 ≤ i ≤ n）个矩形的高度是hi。这n个矩形构成了一个直方图。例如，下图中六个矩形的高度就分别是3, 1, 6, 5, 2, 3。<br />
+<img src="https://img-blog.csdnimg.cn/2020121717482394.png" srcset="/img/loading.gif" lazyload alt="" /></p>
+<p>请找出能放在给定直方图里面积最大的矩形，它的边要与坐标轴平行。对于上面给出的例子，最大矩形如下图所示的阴影部分，面积是10。<br />
+<img src="https://img-blog.csdnimg.cn/20201217174844858.png" srcset="/img/loading.gif" lazyload alt="" /></p>
+<p><strong>输入格式</strong><br />
+第一行包含一个整数n，即矩形的数量(1 ≤ n ≤ 1000)。<br />
+第二行包含n 个整数h1, h2, … , hn，相邻的数之间由空格分隔。(1 ≤ hi ≤ 10000)。hi是第i个矩形的高度。<br />
+　　<br />
+<strong>输出格式</strong><br />
+输出一行，包含一个整数，即给定直方图内的最大矩形的面积。<br />
+　　<br />
+<strong>样例输入</strong><br />
+6<br />
+3 1 6 5 2 3</p>
+<p><strong>样例输出</strong><br />
+10</p>
+<p><strong>题解</strong><br />
+我们可以维持一个单调递增的栈，为了便于计算矩形宽度，我们在栈里存放单个矩形的位置。<br />
+我们从左到右遍历高度数组，对于每个矩形的高度p，如果p大于等于当前栈顶储存位置的高度q，我们将p的位置也压入栈中；<br />
+如果p小于q，我们将q弹出，纪录高度，并记录当前遍历到的矩形p与新栈顶位置之差(实际上还需要减1)，作为宽度，并更新结果。<br />
+为避免栈中剩余矩形，我们可以在数组尾插入一个高度为零的矩形，使栈中所有矩形弹出并更新。</p>
+<p><strong>代码实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">largestRectangleArea</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; heights)</span> </span>&#123;<br>	heights.<span class="hljs-built_in">push_back</span>(<span class="hljs-number">0</span>);		<span class="hljs-comment">//插入空矩形，弹出栈中剩余矩形</span><br>	<span class="hljs-keyword">int</span> len = heights.<span class="hljs-built_in">size</span>(), area = <span class="hljs-number">0</span>, pre_index, height, width;<br>	stack&lt;<span class="hljs-keyword">int</span>&gt; indices;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) &#123;<br>		<span class="hljs-keyword">while</span> (!indices.<span class="hljs-built_in">empty</span>() &amp;&amp; heights[indices.<span class="hljs-built_in">top</span>()] &gt; heights[i]) &#123;	<span class="hljs-comment">//检查栈是否为空</span><br>			pre_index = indices.<span class="hljs-built_in">top</span>();		<span class="hljs-comment">//储存栈顶矩形的位置</span><br>			indices.<span class="hljs-built_in">pop</span>();<br>			height = heights[pre_index];	<span class="hljs-comment">//储存高度</span><br>			<span class="hljs-keyword">if</span> (indices.<span class="hljs-built_in">empty</span>()) &#123;			<span class="hljs-comment">//避免操作空栈</span><br>				width = i;					<span class="hljs-comment">//若弹出至栈为空，因栈的递增性，边界可向左延伸至0</span><br>			&#125; <span class="hljs-keyword">else</span> &#123;<br>				width = i - indices.<span class="hljs-built_in">top</span>() - <span class="hljs-number">1</span>;		<span class="hljs-comment">//储存宽度</span><br>			&#125;<br>			area = area &gt; (width * height) ? area : (width * height);		<span class="hljs-comment">//更新结果</span><br>		&#125;<br>		indices.<span class="hljs-built_in">push</span>(i);<br>	&#125;<br>	<span class="hljs-keyword">return</span> area;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="2每日温度-leetcode-739"><a class="markdownIt-Anchor" href="#2每日温度-leetcode-739"></a> 2.每日温度 [LeetCode] 739.</h2>
+<p><strong>问题描述</strong></p>
+<p>请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 0 来代替。<br />
+例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。<br />
+提示：气温 列表长度的范围是 [1, 30000]。每个气温的值的均为华氏度，都是在 [30, 100] 范围内的整数。</p>
+<p><strong>题解</strong></p>
+<p>我们在这里维持一个单调递减的栈，为了便于计算天数差，我们在栈中储存位置(即日期)。<br />
+此题相较上题简单一些，故不在此赘述。<br />
+<strong>注意：</strong><br />
+此题与上题不同的是，若栈中有剩余的日期，说明此后没有更暖和的日期，故无需再弹出。</p>
+<p><strong>代码实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">dailyTemperatures</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; T)</span> </span>&#123;<br>	<span class="hljs-keyword">int</span> n = T.<span class="hljs-built_in">size</span>(), pre_index;<br>	<span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">ans</span><span class="hljs-params">(n)</span></span>;<br>	stack&lt;<span class="hljs-keyword">int</span>&gt; indices;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>		<span class="hljs-keyword">while</span> (!indices.<span class="hljs-built_in">empty</span>() &amp;&amp; T[indices.<span class="hljs-built_in">top</span>()] &lt; T[i]) &#123;<br>			pre_index = indices.<span class="hljs-built_in">top</span>();<br>			indices.<span class="hljs-built_in">pop</span>();<br>			ans[pre_index] = i - pre_index;		<span class="hljs-comment">//计算日期差</span><br>		&#125;<br>		indices.<span class="hljs-built_in">push</span>(i);<br>	&#125;<br>	<span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -292,9 +319,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/mysql/">mysql</a>
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
                     
-                      <a class="hover-with-bg" href="/tags/ubuntu/">ubuntu</a>
+                      <a class="hover-with-bg" href="/tags/cpp/">cpp</a>
                     
                   </div>
                 
@@ -311,9 +338,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/12/11/%5B%E8%AF%BE%E9%A2%98%E8%AE%BE%E8%AE%A1%5D%E6%A0%A1%E5%9B%AD%E5%AF%BC%E8%88%AA/">
+                      <a href="/p/740/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">[课题设计]校园导航</span>
+                        <span class="hidden-mobile">[nginx]Nginx ubuntu部署</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -321,8 +348,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/08/20/%5Bpython%5D%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E4%BF%A1%E6%81%AF&amp;%E8%87%AA%E5%8A%A8%E5%8C%96%E5%A4%84%E7%90%86%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                        <span class="hidden-mobile">[python]爬虫实战-爬取豆瓣小组信息&自动化处理验证码</span>
+                      <a href="/p/c73b/">
+                        <span class="hidden-mobile">[cpp]gcd&lcm</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
