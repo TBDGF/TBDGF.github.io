@@ -13,24 +13,28 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="剑指Offer Day-01">
+  <meta name="description" content="剑指Offer Day-02">
   <meta name="author" content="Allen Ji">
   <meta name="keywords" content="">
-  <meta name="description" content="剑指Offer Day-01">
+  <meta name="description" content="剑指Offer Day-02">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指Offer Day-01">
-<meta property="og:url" content="http://example.com/p/9eea/index.html">
+<meta property="og:title" content="剑指Offer Day-02">
+<meta property="og:url" content="http://example.com/p/9faa/index.html">
 <meta property="og:site_name" content="Allen Ji&#39;s blog">
-<meta property="og:description" content="剑指Offer Day-01">
+<meta property="og:description" content="剑指Offer Day-02">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-02-24T09:08:35.000Z">
-<meta property="article:modified_time" content="2022-02-25T05:38:17.899Z">
+<meta property="og:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/09/e1.png">
+<meta property="og:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/09/e2.png">
+<meta property="og:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/09/e3.png">
+<meta property="article:published_time" content="2022-02-25T04:46:35.000Z">
+<meta property="article:modified_time" content="2022-02-25T05:38:08.518Z">
 <meta property="article:author" content="Allen Ji">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="cpp">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/09/e1.png">
   
-  <title>剑指Offer Day-01 - Allen Ji&#39;s blog</title>
+  <title>剑指Offer Day-02 - Allen Ji&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -188,7 +192,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="剑指Offer Day-01">
+            <span class="h2" id="subtitle" title="剑指Offer Day-02">
               
             </span>
 
@@ -198,8 +202,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-02-24 17:08" pubdate>
-        2022年2月24日 下午
+      <time datetime="2022-02-25 12:46" pubdate>
+        2022年2月25日 下午
       </time>
     </span>
   
@@ -209,7 +213,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.5k 字
+      2.2k 字
     </span>
   
 
@@ -218,7 +222,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8 分钟
+      7 分钟
     </span>
   
 
@@ -255,7 +259,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">剑指Offer Day-01</h1>
+            <h1 style="display: none">剑指Offer Day-02</h1>
             
               <p class="note note-info">
                 
@@ -264,34 +268,64 @@
               </p>
             
             <div class="markdown-body">
-              <p>剑指Offer Day-01</p>
+              <p>剑指Offer Day-02</p>
 <span id="more"></span>
-<h2 id="剑指-offer-09-用两个栈实现队列"><a class="markdownIt-Anchor" href="#剑指-offer-09-用两个栈实现队列"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/">剑指 Offer 09. 用两个栈实现队列</a></h2>
+<h2 id="剑指-offer-06-从尾到头打印链表"><a class="markdownIt-Anchor" href="#剑指-offer-06-从尾到头打印链表"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/">剑指 Offer 06. 从尾到头打印链表</a></h2>
 <h3 id="描述"><a class="markdownIt-Anchor" href="#描述"></a> 描述</h3>
-<p>定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。</p>
-<p><strong>示例</strong></p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs pf">M<span class="hljs-keyword">in</span>Stack <span class="hljs-keyword">min</span>Stack = new M<span class="hljs-keyword">in</span>Stack();<br><span class="hljs-keyword">min</span>Stack.push(-<span class="hljs-number">2</span>);<br><span class="hljs-keyword">min</span>Stack.push(<span class="hljs-number">0</span>);<br><span class="hljs-keyword">min</span>Stack.push(-<span class="hljs-number">3</span>);<br><span class="hljs-keyword">min</span>Stack.<span class="hljs-keyword">min</span>();   --&gt; 返回 -<span class="hljs-number">3</span>.<br><span class="hljs-keyword">min</span>Stack.pop();<br><span class="hljs-keyword">min</span>Stack.top();      --&gt; 返回 <span class="hljs-number">0</span>.<br><span class="hljs-keyword">min</span>Stack.<span class="hljs-keyword">min</span>();   --&gt; 返回 -<span class="hljs-number">2</span>.<br></code></pre></td></tr></table></figure>
-<p><strong>提示</strong></p>
-<p>各函数的调用总次数不超过 20000 次</p>
+<p>输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。</p>
+<p><strong>示例 1</strong></p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：head = <span class="hljs-comment">[1,3,2]</span><br>输出：<span class="hljs-comment">[2,3,1]</span><br></code></pre></td></tr></table></figure>
+<p><strong>限制</strong></p>
+<p>0 &lt;= 链表长度 &lt;= 10000</p>
 <h3 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h3>
-<p>维护两个栈，一个栈stack_in只负责输出，另一个栈stack_out只负责输入。</p>
-<p>当stack_out为空时，将stack_in倒入stack_out中。</p>
-<p>因为栈的先入后出特性，此过程完成了一次反转，变成了先入先出，符合队列的特性</p>
+<p>用栈倒一下顺序</p>
 <p><strong>代码</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CQueue</span> &#123;</span><br>    stack&lt;<span class="hljs-keyword">int</span>&gt; stack_in, stack_out;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">CQueue</span>() &#123;<br>        <span class="hljs-keyword">while</span> (!stack_in.<span class="hljs-built_in">empty</span>()) &#123;<br>            stack_in.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>        <span class="hljs-keyword">while</span> (!stack_out.<span class="hljs-built_in">empty</span>()) &#123;<br>            stack_out.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">appendTail</span><span class="hljs-params">(<span class="hljs-keyword">int</span> value)</span> </span>&#123;<br>        stack_in.<span class="hljs-built_in">push</span>(value);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">deleteHead</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//输出栈为空，将输入栈倒入输出栈中</span><br>        <span class="hljs-keyword">if</span> (stack_out.<span class="hljs-built_in">empty</span>()) &#123;<br>            <span class="hljs-keyword">while</span> (!stack_in.<span class="hljs-built_in">empty</span>()) &#123;<br>                stack_out.<span class="hljs-built_in">push</span>(stack_in.<span class="hljs-built_in">top</span>());<br>                stack_in.<span class="hljs-built_in">pop</span>();<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">//如果倾倒完，输出栈还为空，说明队列为空</span><br>        <span class="hljs-keyword">if</span> (stack_out.<span class="hljs-built_in">empty</span>()) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">int</span> ret = stack_out.<span class="hljs-built_in">top</span>();<br>            stack_out.<span class="hljs-built_in">pop</span>();<br>            <span class="hljs-keyword">return</span> ret;<br>        &#125;<br>    &#125;<br>&#125;;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Your CQueue object will be instantiated and called as such:</span><br><span class="hljs-comment"> * CQueue* obj = new CQueue();</span><br><span class="hljs-comment"> * obj-&gt;appendTail(value);</span><br><span class="hljs-comment"> * int param_2 = obj-&gt;deleteHead();</span><br><span class="hljs-comment"> */</span><br></code></pre></td></tr></table></figure>
-<hr />
-<h2 id="剑指-offer-30-包含min函数的栈"><a class="markdownIt-Anchor" href="#剑指-offer-30-包含min函数的栈"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/bao-han-minhan-shu-de-zhan-lcof/">剑指 Offer 30. 包含min函数的栈</a></h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * struct ListNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     ListNode *next;</span><br><span class="hljs-comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="hljs-comment"> * &#125;;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br>    stack&lt;<span class="hljs-keyword">int</span>&gt; stack;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">reversePrint</span><span class="hljs-params">(ListNode *head)</span> </span>&#123;<br>        vector&lt;<span class="hljs-keyword">int</span>&gt; ans;<br>        ListNode *p = head;<br>        <span class="hljs-keyword">if</span> (!p) &#123;<br>            <span class="hljs-keyword">return</span> ans;<br>        &#125;<br>        <span class="hljs-keyword">while</span> (p) &#123;<br>            stack.<span class="hljs-built_in">push</span>(p-&gt;val);<br>            p = p-&gt;next;<br>        &#125;<br>        <span class="hljs-keyword">while</span> (!stack.<span class="hljs-built_in">empty</span>()) &#123;<br>            ans.<span class="hljs-built_in">push_back</span>(stack.<span class="hljs-built_in">top</span>());<br>            stack.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h2 id="剑指-offer-24-反转链表"><a class="markdownIt-Anchor" href="#剑指-offer-24-反转链表"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/">剑指 Offer 24. 反转链表</a></h2>
 <h3 id="描述-2"><a class="markdownIt-Anchor" href="#描述-2"></a> 描述</h3>
-<p>定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。</p>
+<p>定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。</p>
 <p><strong>示例</strong></p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs pf">M<span class="hljs-keyword">in</span>Stack <span class="hljs-keyword">min</span>Stack = new M<span class="hljs-keyword">in</span>Stack();<br><span class="hljs-keyword">min</span>Stack.push(-<span class="hljs-number">2</span>);<br><span class="hljs-keyword">min</span>Stack.push(<span class="hljs-number">0</span>);<br><span class="hljs-keyword">min</span>Stack.push(-<span class="hljs-number">3</span>);<br><span class="hljs-keyword">min</span>Stack.<span class="hljs-keyword">min</span>();   --&gt; 返回 -<span class="hljs-number">3</span>.<br><span class="hljs-keyword">min</span>Stack.pop();<br><span class="hljs-keyword">min</span>Stack.top();      --&gt; 返回 <span class="hljs-number">0</span>.<br><span class="hljs-keyword">min</span>Stack.<span class="hljs-keyword">min</span>();   --&gt; 返回 -<span class="hljs-number">2</span>.<br></code></pre></td></tr></table></figure>
-<p><strong>提示</strong></p>
-<p>各函数的调用总次数不超过 20000 次</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clean">输入: <span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">5</span>-&gt;NULL<br>输出: <span class="hljs-number">5</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">1</span>-&gt;NULL<br></code></pre></td></tr></table></figure>
+<p><strong>限制</strong></p>
+<p>0 &lt;= 节点个数 &lt;= 5000</p>
 <h3 id="题解-2"><a class="markdownIt-Anchor" href="#题解-2"></a> 题解</h3>
-<p>由于栈的特性，每个元素退出、插入后、访问时，该栈的结构不会发生变化，所以我们可以在插入元素时存：到该元素为止最小的元素。</p>
-<p>这样，每次访问该元素时，最小的元素值一定正确且不会发生变化。</p>
+<p>运用迭代，储存当前节点的next和prev。</p>
+<p>prev用于反转链表，next用于将当前指针向下迭代。</p>
 <p><strong>代码</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MinStack</span> &#123;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">MinNode</span> &#123;</span><br>        <span class="hljs-keyword">int</span> min;<br>        <span class="hljs-keyword">int</span> value;<br><br>        <span class="hljs-built_in">MinNode</span>(<span class="hljs-keyword">int</span> min, <span class="hljs-keyword">int</span> value) : <span class="hljs-built_in">min</span>(min), <span class="hljs-built_in">value</span>(value) &#123;&#125;<br>    &#125;;<br><br>    <span class="hljs-keyword">typedef</span> MinNode *PtrToNode;<br>    stack&lt;PtrToNode&gt; stack;<br><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-comment">/** initialize your data structure here. */</span><br>    <span class="hljs-built_in">MinStack</span>() &#123;<br>        <span class="hljs-keyword">while</span> (!stack.<span class="hljs-built_in">empty</span>()) &#123;<br>            stack.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">push</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (stack.<span class="hljs-built_in">empty</span>()) &#123;<br>            stack.<span class="hljs-built_in">push</span>(<span class="hljs-keyword">new</span> <span class="hljs-built_in">MinNode</span>(x, x));<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">if</span> (x &lt; stack.<span class="hljs-built_in">top</span>()-&gt;min) &#123;<br>                stack.<span class="hljs-built_in">push</span>(<span class="hljs-keyword">new</span> <span class="hljs-built_in">MinNode</span>(x, x));<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                stack.<span class="hljs-built_in">push</span>(<span class="hljs-keyword">new</span> <span class="hljs-built_in">MinNode</span>(stack.<span class="hljs-built_in">top</span>()-&gt;min, x));<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pop</span><span class="hljs-params">()</span> </span>&#123;<br>        stack.<span class="hljs-built_in">pop</span>();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">top</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> stack.<span class="hljs-built_in">top</span>()-&gt;value;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">min</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> stack.<span class="hljs-built_in">top</span>()-&gt;min;<br>    &#125;<br>&#125;;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Your MinStack object will be instantiated and called as such:</span><br><span class="hljs-comment"> * MinStack* obj = new MinStack();</span><br><span class="hljs-comment"> * obj-&gt;push(x);</span><br><span class="hljs-comment"> * obj-&gt;pop();</span><br><span class="hljs-comment"> * int param_3 = obj-&gt;top();</span><br><span class="hljs-comment"> * int param_4 = obj-&gt;min();</span><br><span class="hljs-comment"> */</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * struct ListNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     ListNode *next;</span><br><span class="hljs-comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="hljs-comment"> * &#125;;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode *<span class="hljs-title">reverseList</span><span class="hljs-params">(ListNode *head)</span> </span>&#123;<br>        ListNode *p = head, *prev = <span class="hljs-literal">NULL</span>, *next;<br>        <span class="hljs-keyword">while</span> (p) &#123;<br>            next = p-&gt;next;<br>            p-&gt;next = prev;<br>            prev = p;<br>            p = next;<br>        &#125;<br>        <span class="hljs-keyword">return</span> prev;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h2 id="剑指-offer-35-复杂链表的复制"><a class="markdownIt-Anchor" href="#剑指-offer-35-复杂链表的复制"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/fu-za-lian-biao-de-fu-zhi-lcof/">剑指 Offer 35. 复杂链表的复制</a></h2>
+<h3 id="描述-3"><a class="markdownIt-Anchor" href="#描述-3"></a> 描述</h3>
+<p>请实现 copyRandomList 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针指向链表中的任意节点或者 null。</p>
+<p><strong>示例 1</strong></p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/09/e1.png" srcset="/img/loading.gif" lazyload alt="img" /></p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：head = <span class="hljs-comment">[<span class="hljs-comment">[7,null]</span>,<span class="hljs-comment">[13,0]</span>,<span class="hljs-comment">[11,4]</span>,<span class="hljs-comment">[10,2]</span>,<span class="hljs-comment">[1,0]</span>]</span><br>输出：<span class="hljs-comment">[<span class="hljs-comment">[7,null]</span>,<span class="hljs-comment">[13,0]</span>,<span class="hljs-comment">[11,4]</span>,<span class="hljs-comment">[10,2]</span>,<span class="hljs-comment">[1,0]</span>]</span><br></code></pre></td></tr></table></figure>
+<p><strong>示例 2</strong></p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/09/e2.png" srcset="/img/loading.gif" lazyload alt="img" /></p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lua">输入：head = <span class="hljs-string">[[1,1],[2,1]]</span><br>输出：<span class="hljs-string">[[1,1],[2,1]]</span><br></code></pre></td></tr></table></figure>
+<p><strong>示例 3</strong></p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/09/e3.png" srcset="/img/loading.gif" lazyload alt="img" /></p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lua">输入：head = <span class="hljs-string">[[3,null],[3,0],[3,null]]</span><br>输出：<span class="hljs-string">[[3,null],[3,0],[3,null]]</span><br></code></pre></td></tr></table></figure>
+<p><strong>示例 4</strong></p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：head = <span class="hljs-comment">[]</span><br>输出：<span class="hljs-comment">[]</span><br>解释：给定的链表为空（空指针），因此返回 null。<br></code></pre></td></tr></table></figure>
+<p><strong>提示</strong></p>
+<ul>
+<li>
+<p>-10000 &lt;= Node.val &lt;= 10000</p>
+</li>
+<li>
+<p>Node.random 为空（null）或指向链表中的节点。</p>
+</li>
+<li>
+<p>节点数目不超过 1000 。</p>
+</li>
+</ul>
+<h3 id="题解-3"><a class="markdownIt-Anchor" href="#题解-3"></a> 题解</h3>
+<p>我们使用递归求解此题，每当创建一个节点时，递归创建该节点的next和random节点。</p>
+<p>我们用哈希表记录每一个节点对应新节点的创建情况。</p>
+<p>我们需要首先检查当前节点是否被拷贝过，如果已经拷贝过，我们可以直接从哈希表中取出拷贝后的节点的指针并返回。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/*</span><br><span class="hljs-comment">// Definition for a Node.</span><br><span class="hljs-comment">class Node &#123;</span><br><span class="hljs-comment">public:</span><br><span class="hljs-comment">    int val;</span><br><span class="hljs-comment">    Node* next;</span><br><span class="hljs-comment">    Node* random;</span><br><span class="hljs-comment">    </span><br><span class="hljs-comment">    Node(int _val) &#123;</span><br><span class="hljs-comment">        val = _val;</span><br><span class="hljs-comment">        next = NULL;</span><br><span class="hljs-comment">        random = NULL;</span><br><span class="hljs-comment">    &#125;</span><br><span class="hljs-comment">&#125;;</span><br><span class="hljs-comment">*/</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br>    map&lt;Node *, Node *&gt; map;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">Node *<span class="hljs-title">copyRandomList</span><span class="hljs-params">(Node *head)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (!head) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (!map.<span class="hljs-built_in">count</span>(head)) &#123;<br>            Node *node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(head-&gt;val);<br>            map[head] = node;<br>            node-&gt;next = <span class="hljs-built_in">copyRandomList</span>(head-&gt;next);<br>            node-&gt;random = <span class="hljs-built_in">copyRandomList</span>(head-&gt;random);<br>        &#125;<br>        <span class="hljs-keyword">return</span> map[head];<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
             </div>
             <hr>
             <div>
@@ -327,18 +361,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/p/9370/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">面试算法题-01</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/p/eb1f/">
-                        <span class="hidden-mobile">[课题设计]校园导航</span>
+                      <a href="/p/9370/">
+                        <span class="hidden-mobile">面试算法题-01</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
