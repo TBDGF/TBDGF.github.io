@@ -13,23 +13,23 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="剑指Offer Day-03">
+  <meta name="description" content="剑指Offer Day-04">
   <meta name="author" content="Allen Ji">
   <meta name="keywords" content="">
-  <meta name="description" content="剑指Offer Day-03">
+  <meta name="description" content="剑指Offer Day-04">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指Offer Day-03">
-<meta property="og:url" content="http://example.com/p/5f6b/index.html">
+<meta property="og:title" content="剑指Offer Day-04">
+<meta property="og:url" content="http://example.com/p/9d2a/index.html">
 <meta property="og:site_name" content="Allen Ji&#39;s blog">
-<meta property="og:description" content="剑指Offer Day-03">
+<meta property="og:description" content="剑指Offer Day-04">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-02-26T09:37:24.000Z">
-<meta property="article:modified_time" content="2022-02-26T11:21:40.053Z">
+<meta property="article:published_time" content="2022-02-27T03:52:22.000Z">
+<meta property="article:modified_time" content="2022-02-27T04:44:34.724Z">
 <meta property="article:author" content="Allen Ji">
 <meta property="article:tag" content="-cpp -算法">
 <meta name="twitter:card" content="summary_large_image">
   
-  <title>剑指Offer Day-03 - Allen Ji&#39;s blog</title>
+  <title>剑指Offer Day-04 - Allen Ji&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="剑指Offer Day-03">
+            <span class="h2" id="subtitle" title="剑指Offer Day-04">
               
             </span>
 
@@ -197,8 +197,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-02-26 17:37" pubdate>
-        2022年2月26日 下午
+      <time datetime="2022-02-27 11:52" pubdate>
+        2022年2月27日 中午
       </time>
     </span>
   
@@ -208,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      928 字
+      2.2k 字
     </span>
   
 
@@ -217,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      7 分钟
     </span>
   
 
@@ -254,41 +254,73 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">剑指Offer Day-03</h1>
+            <h1 style="display: none">剑指Offer Day-04</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 天前
+                  本文最后更新于：1 天前
                 
               </p>
             
             <div class="markdown-body">
-              <p>剑指Offer Day-03</p>
+              <p>剑指Offer Day-04</p>
 <span id="more"></span>
-<h2 id="剑指-offer-05-替换空格"><a class="markdownIt-Anchor" href="#剑指-offer-05-替换空格"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/">剑指 Offer 05. 替换空格</a></h2>
+<h2 id="剑指-offer-03-数组中重复的数字"><a class="markdownIt-Anchor" href="#剑指-offer-03-数组中重复的数字"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/">剑指 Offer 03. 数组中重复的数字</a></h2>
 <h3 id="描述"><a class="markdownIt-Anchor" href="#描述"></a> 描述</h3>
-<p>请实现一个函数，把字符串 s 中的每个空格替换成&quot;%20&quot;。</p>
+<p>找出数组中重复的数字。</p>
+<p>在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</p>
 <p><strong>示例 1</strong></p>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs perl">输入：s = <span class="hljs-string">&quot;We are happy.&quot;</span><br>输出：<span class="hljs-string">&quot;We%20are%20happy.&quot;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs accesslog">输入：<br><span class="hljs-string">[2, 3, 1, 0, 2, 5, 3]</span><br>输出：<span class="hljs-number">2</span> 或 <span class="hljs-number">3</span> <br></code></pre></td></tr></table></figure>
 <p><strong>限制</strong></p>
-<p>0 &lt;= s 的长度 &lt;= 10000</p>
+<p>2 &lt;= n &lt;= 100000</p>
 <h3 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h3>
-<p>没啥好说的，直接遍历</p>
+<p><strong>解法一</strong></p>
+<p>遍历，保存到set里</p>
 <p><strong>代码</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">string <span class="hljs-title">replaceSpace</span><span class="hljs-params">(string s)</span> </span>&#123;<br>        string ans;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> ch:s) &#123;<br>            <span class="hljs-keyword">if</span> (ch == <span class="hljs-string">&#x27; &#x27;</span>) &#123;<br>                ans.<span class="hljs-built_in">push_back</span>(<span class="hljs-string">&#x27;%&#x27;</span>);<br>                ans.<span class="hljs-built_in">push_back</span>(<span class="hljs-string">&#x27;2&#x27;</span>);<br>                ans.<span class="hljs-built_in">push_back</span>(<span class="hljs-string">&#x27;0&#x27;</span>);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                ans.<span class="hljs-built_in">push_back</span>(ch);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<h2 id="剑指-offer-58-ii-左旋转字符串"><a class="markdownIt-Anchor" href="#剑指-offer-58-ii-左旋转字符串"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/">剑指 Offer 58 - II. 左旋转字符串</a></h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br>    set&lt;<span class="hljs-keyword">int</span>&gt; set;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">findRepeatNumber</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt; &amp;nums)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> item:nums) &#123;<br>            <span class="hljs-keyword">if</span> (set.<span class="hljs-built_in">count</span>(item) &gt; <span class="hljs-number">0</span>)<br>                <span class="hljs-keyword">return</span> item;<br>            set.<span class="hljs-built_in">insert</span>(item);<br>        &#125;<br>        <span class="hljs-comment">//题目保证有重复，这里返回什么都可以</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p><strong>解法二</strong></p>
+<p>原地交换。</p>
+<p>遍历时，将元素与元素值对应的索引地址交换，形成 <code>nums[i] == nums[nums[i]]</code> 。</p>
+<p>这样，下次遇到相同的 <code>nums[i]</code> 想交换时，会发现目标位置已经有重复值，最后返回这个重复值</p>
+<p><strong>注意</strong></p>
+<p>如果进行了一次交换，<code>i</code> 不要增加，因为不能保证交换过来的元素（也就是 <code>i</code> 位置当前的元素）处于正确的位置，所以我们需要再对 <code>i</code> 位置判断一次。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">findRepeatNumber</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt; &amp;nums)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); ++i) &#123;<br>            <span class="hljs-keyword">if</span> (nums[i] != i) &#123;<br>                <span class="hljs-keyword">if</span> (nums[i] == nums[nums[i]])<br>                    <span class="hljs-keyword">return</span> nums[i];<br>                <span class="hljs-built_in">swap</span>(nums[i], nums[nums[i]]);<br>                <span class="hljs-comment">//i不增加，对当前位置再判断一次</span><br>                i--;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h2 id="剑指-offer-53-i-在排序数组中查找数字-i"><a class="markdownIt-Anchor" href="#剑指-offer-53-i-在排序数组中查找数字-i"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof/">剑指 Offer 53 - I. 在排序数组中查找数字 I</a></h2>
 <h3 id="描述-2"><a class="markdownIt-Anchor" href="#描述-2"></a> 描述</h3>
-<p>字符串的左旋转操作是把字符串前面的若干个字符转移到字符串的尾部。请定义一个函数实现字符串左旋转操作的功能。比如，输入字符串&quot;abcdefg&quot;和数字2，该函数将返回左旋转两位得到的结果&quot;cdefgab&quot;。</p>
+<p>统计一个数字在排序数组中出现的次数。</p>
 <p><strong>示例 1</strong></p>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nix">输入: <span class="hljs-attr">s</span> = <span class="hljs-string">&quot;abcdefg&quot;</span>, <span class="hljs-attr">k</span> = <span class="hljs-number">2</span><br>输出: <span class="hljs-string">&quot;cdefgab&quot;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">输入: nums = [5,7,7,8,8,10], target = 8</span><br><span class="hljs-section">输出: 2</span><br></code></pre></td></tr></table></figure>
 <p><strong>示例 2</strong></p>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nix">输入: <span class="hljs-attr">s</span> = <span class="hljs-string">&quot;lrloseumgh&quot;</span>, <span class="hljs-attr">k</span> = <span class="hljs-number">6</span><br>输出: <span class="hljs-string">&quot;umghlrlose&quot;</span><br></code></pre></td></tr></table></figure>
-<p><strong>限制</strong></p>
-<p>1 &lt;= k &lt; s.length &lt;= 10000</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">输入: nums = [5,7,7,8,8,10], target = 6</span><br><span class="hljs-section">输出: 0</span><br></code></pre></td></tr></table></figure>
+<p><strong>提示</strong></p>
+<ul>
+<li>0 &lt;= nums.length &lt;= 10^5</li>
+<li>-10^9 &lt;= nums[i] &lt;= 10^9</li>
+<li>nums 是一个非递减数组</li>
+<li>-10^9 &lt;= target &lt;= 10^9</li>
+</ul>
+<p><strong>注意</strong></p>
+<p>本题与主站 34 题相同（仅返回值不同）：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/</a></p>
 <h3 id="题解-2"><a class="markdownIt-Anchor" href="#题解-2"></a> 题解</h3>
-<p>使用string类的substr()方法，直接拼接字符串。</p>
+<p>两次二分，分别找 <code>target</code> 的上界和下界，返回差值。</p>
 <p><strong>代码</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">string <span class="hljs-title">reverseLeftWords</span><span class="hljs-params">(string s, <span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>        string ans;<br>        ans = s.<span class="hljs-built_in">substr</span>(n);<br>        ans += s.<span class="hljs-built_in">substr</span>(<span class="hljs-number">0</span>, n);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">search</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt; &amp;nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>, right = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>, mid;<br>        <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>            mid = (left + right) / <span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span> (nums[mid] &lt; target)<br>                left = mid + <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">else</span><br>                right = mid - <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">int</span> lBound = left;<br>        left = <span class="hljs-number">0</span>, right = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>            mid = (left + right) / <span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span> (nums[mid] &lt;= target)<br>                left = mid + <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">else</span><br>                right = mid - <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">int</span> rBound = left;<br>        <span class="hljs-keyword">return</span> rBound - lBound;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h2 id="剑指-offer-53-ii-0~n-1中缺失的数字"><a class="markdownIt-Anchor" href="#剑指-offer-53-ii-0~n-1中缺失的数字"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/que-shi-de-shu-zi-lcof/">剑指 Offer 53 - II. 0～n-1中缺失的数字</a></h2>
+<h3 id="描述-3"><a class="markdownIt-Anchor" href="#描述-3"></a> 描述</h3>
+<p>一个长度为n-1的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围0～n-1之内。在范围0～n-1内的n个数字中有且只有一个数字不在该数组中，请找出这个数字。</p>
+<p><strong>示例 1</strong></p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">输入: [0,1,3]</span><br><span class="hljs-section">输出: 2</span><br></code></pre></td></tr></table></figure>
+<p><strong>示例 2</strong></p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dns">输入: [<span class="hljs-number">0,1,2,3</span>,<span class="hljs-number">4,5,6,7</span>,<span class="hljs-number">9</span>]<br>输出: <span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
+<p><strong>限制</strong></p>
+<p>1 &lt;= 数组长度 &lt;= 10000</p>
+<h3 id="题解-3"><a class="markdownIt-Anchor" href="#题解-3"></a> 题解</h3>
+<p>排序数组，优先使用二分法。</p>
+<p>思考缺失的位置有什么特殊点（可比较点）。</p>
+<p>缺失的位置左边都应是 <code>nums[i]=i</code> ，所以我们直接寻找该序列的最右端，最右端右侧的位置就是缺失的位置。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">missingNumber</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt; &amp;nums)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>, right = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>, mid;<br>        <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>            mid = (left + right) / <span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span> (nums[mid] == mid)<br>                left = mid + <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">else</span><br>                right = mid - <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> left;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -323,9 +355,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/p/9230/">
+                      <a href="/p/5deb/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">面试算法题-02</span>
+                        <span class="hidden-mobile">剑指Offer Day-05</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -333,8 +365,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/p/9faa/">
-                        <span class="hidden-mobile">剑指Offer Day-02</span>
+                      <a href="/p/9230/">
+                        <span class="hidden-mobile">面试算法题-02</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
