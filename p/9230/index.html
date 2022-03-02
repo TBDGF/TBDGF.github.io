@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2020/08/28/pre1.jpg">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2021/02/19/tree1.jpg">
 <meta property="article:published_time" content="2022-02-27T02:48:11.000Z">
-<meta property="article:modified_time" content="2022-02-28T03:12:19.891Z">
+<meta property="article:modified_time" content="2022-03-02T07:35:18.347Z">
 <meta property="article:author" content="Allen Ji">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="cpp">
@@ -216,7 +216,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.5k 字
+      5.3k 字
     </span>
   
 
@@ -225,7 +225,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14 分钟
+      17 分钟
     </span>
   
 
@@ -266,7 +266,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：7 小时前
+                  本文最后更新于：1 分钟前
                 
               </p>
             
@@ -360,6 +360,20 @@
 <p>此题需要我们进行分层，我们便在while语句中进一步用for来细化各层，将开启每一层时队列的大小当作循环条件。</p>
 <p><strong>代码</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for a binary tree node.</span><br><span class="hljs-comment"> * struct TreeNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     TreeNode *left;</span><br><span class="hljs-comment"> *     TreeNode *right;</span><br><span class="hljs-comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span><br><span class="hljs-comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span><br><span class="hljs-comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span><br><span class="hljs-comment"> * &#125;;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br>    queue&lt;TreeNode *&gt; queue;<br>    vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt; ans;<br><span class="hljs-keyword">public</span>:<br>    vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-built_in">levelOrder</span>(TreeNode *root) &#123;<br>        <span class="hljs-keyword">if</span> (!root)<br>            <span class="hljs-keyword">return</span> ans;<br>        queue.<span class="hljs-built_in">push</span>(root);<br>        <span class="hljs-keyword">while</span> (!queue.<span class="hljs-built_in">empty</span>()) &#123;<br>            <span class="hljs-comment">//保存该层的大小</span><br>            <span class="hljs-keyword">int</span> levelSize = queue.<span class="hljs-built_in">size</span>();<br>            ans.<span class="hljs-built_in">push_back</span>(vector&lt;<span class="hljs-keyword">int</span>&gt;());<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; levelSize; ++i) &#123;<br>                TreeNode *node = queue.<span class="hljs-built_in">front</span>();<br>                ans.<span class="hljs-built_in">back</span>().<span class="hljs-built_in">push_back</span>(node-&gt;val);<br>                <span class="hljs-keyword">if</span> (node-&gt;left)<br>                    queue.<span class="hljs-built_in">push</span>(node-&gt;left);<br>                <span class="hljs-keyword">if</span> (node-&gt;right)<br>                    queue.<span class="hljs-built_in">push</span>(node-&gt;right);<br>                queue.<span class="hljs-built_in">pop</span>();<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h2 id="找出每一个数后面第一个比它大的数"><a class="markdownIt-Anchor" href="#找出每一个数后面第一个比它大的数"></a> 找出每一个数后面第一个比它大的数</h2>
+<h3 id="描述-5"><a class="markdownIt-Anchor" href="#描述-5"></a> 描述</h3>
+<p>给定一个整型数组，数组元素随机无序的，要求打印出所有元素右边第一个大于该元素的值。</p>
+<p><strong>示例 1</strong></p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs accesslog">输入：<span class="hljs-string">[1,5,3,6,4,8,9,10]</span><br>输出：<span class="hljs-string">[5, 6, 6, 8, 8, 9, 10, -1]</span><br></code></pre></td></tr></table></figure>
+<p><strong>示例 2</strong></p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs subunit">输入：[8, 2, 5, 4, 3, 9, 7, 2, 5]<br>输出：[9, 5, 9, 9, 9, <span class="hljs-string">-1</span>, <span class="hljs-string">-1</span>, 5, <span class="hljs-string">-1</span>]<br></code></pre></td></tr></table></figure>
+<h3 id="题解-5"><a class="markdownIt-Anchor" href="#题解-5"></a> 题解</h3>
+<p>单调栈。</p>
+<p>单调栈的核心在于，我们想要什么时候弹出元素。</p>
+<p>本题中，我们希望当新元素比栈顶元素大时，弹出栈顶，保存信息。所以我们采用单调减的栈。</p>
+<p>在本题中保存索引下标。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">firstLargeNumber</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt; nums)</span> </span>&#123;<br>        <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">ans</span><span class="hljs-params">(nums.size())</span></span>;<br>        stack&lt;<span class="hljs-keyword">int</span>&gt; stack;<br>        stack.<span class="hljs-built_in">push</span>(<span class="hljs-number">0</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); ++i) &#123;<br>            <span class="hljs-keyword">if</span> (nums[i] &gt; nums[stack.<span class="hljs-built_in">top</span>()]) &#123;<br>                <span class="hljs-comment">//比栈顶大时，弹出并处理元素，直到恢复单调</span><br>                <span class="hljs-keyword">while</span> (!stack.<span class="hljs-built_in">empty</span>() &amp;&amp; nums[i] &gt; nums[stack.<span class="hljs-built_in">top</span>()]) &#123;<br>                    ans[stack.<span class="hljs-built_in">top</span>()] = nums[i];<br>                    stack.<span class="hljs-built_in">pop</span>();<br>                &#125;<br>                stack.<span class="hljs-built_in">push</span>(i);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                stack.<span class="hljs-built_in">push</span>(i);<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">//栈中还有剩余元素，说明这些元素右边没有比它大的元素，按顺序弹出处理就好</span><br>        <span class="hljs-keyword">while</span> (!stack.<span class="hljs-built_in">empty</span>()) &#123;<br>            ans[stack.<span class="hljs-built_in">top</span>()] = <span class="hljs-number">-1</span>;<br>            stack.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
