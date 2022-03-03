@@ -1,0 +1,593 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/props/avatar-me.jpg">
+  <link rel="icon" href="/img/props/avatar-me.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="SQL练习题">
+  <meta name="author" content="Allen Ji">
+  <meta name="keywords" content="">
+  <meta name="description" content="SQL练习题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL练习题">
+<meta property="og:url" content="http://example.com/p/2815/index.html">
+<meta property="og:site_name" content="Allen Ji&#39;s blog">
+<meta property="og:description" content="SQL练习题">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-02T14:12:47.000Z">
+<meta property="article:modified_time" content="2022-03-03T09:03:09.732Z">
+<meta property="article:author" content="Allen Ji">
+<meta property="article:tag" content="sqss">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>SQL练习题 - Allen Ji&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JJP36UKGslyIV4uRQuzWwGnz-gzGzoHsz","app_key":"AJTVRXntUt4z3TPQIwUsiQCU","server_url":"https://jjp36ukg.lc-cn-n1-shared.com","path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Allen Ji&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.loli.net/2021/09/22/mXbyv9l4RsSYQt8.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="SQL练习题">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-02 22:12" pubdate>
+        2022年3月2日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      19 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">SQL练习题</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：1 小时前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>SQL练习题</p>
+<span id="more"></span>
+<h2 id="数据表结构"><a class="markdownIt-Anchor" href="#数据表结构"></a> 数据表结构</h2>
+<p><strong>学生表 Student</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> Student(Sid <span class="hljs-type">varchar</span>(<span class="hljs-number">6</span>), Sname <span class="hljs-type">varchar</span>(<span class="hljs-number">10</span>), Sage datetime, Ssex <span class="hljs-type">varchar</span>(<span class="hljs-number">10</span>));<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> Student <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;01&#x27;</span> , <span class="hljs-string">&#x27;赵雷&#x27;</span> , <span class="hljs-string">&#x27;1990-01-01&#x27;</span> , <span class="hljs-string">&#x27;男&#x27;</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> Student <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;02&#x27;</span> , <span class="hljs-string">&#x27;钱电&#x27;</span> , <span class="hljs-string">&#x27;1990-12-21&#x27;</span> , <span class="hljs-string">&#x27;男&#x27;</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> Student <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;03&#x27;</span> , <span class="hljs-string">&#x27;孙风&#x27;</span> , <span class="hljs-string">&#x27;1990-05-20&#x27;</span> , <span class="hljs-string">&#x27;男&#x27;</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> Student <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;04&#x27;</span> , <span class="hljs-string">&#x27;李云&#x27;</span> , <span class="hljs-string">&#x27;1990-08-06&#x27;</span> , <span class="hljs-string">&#x27;男&#x27;</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> Student <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;05&#x27;</span> , <span class="hljs-string">&#x27;周梅&#x27;</span> , <span class="hljs-string">&#x27;1991-12-01&#x27;</span> , <span class="hljs-string">&#x27;女&#x27;</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> Student <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;06&#x27;</span> , <span class="hljs-string">&#x27;吴兰&#x27;</span> , <span class="hljs-string">&#x27;1992-03-01&#x27;</span> , <span class="hljs-string">&#x27;女&#x27;</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> Student <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;07&#x27;</span> , <span class="hljs-string">&#x27;郑竹&#x27;</span> , <span class="hljs-string">&#x27;1989-07-01&#x27;</span> , <span class="hljs-string">&#x27;女&#x27;</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> Student <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;08&#x27;</span> , <span class="hljs-string">&#x27;王菊&#x27;</span> , <span class="hljs-string">&#x27;1990-01-20&#x27;</span> , <span class="hljs-string">&#x27;女&#x27;</span>);<br></code></pre></td></tr></table></figure>
+<p><strong>成绩表 SC</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> SC(Sid <span class="hljs-type">varchar</span>(<span class="hljs-number">10</span>), Cid <span class="hljs-type">varchar</span>(<span class="hljs-number">10</span>), score <span class="hljs-type">decimal</span>(<span class="hljs-number">18</span>,<span class="hljs-number">1</span>));<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;01&#x27;</span> , <span class="hljs-string">&#x27;01&#x27;</span> , <span class="hljs-number">80</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;01&#x27;</span> , <span class="hljs-string">&#x27;02&#x27;</span> , <span class="hljs-number">90</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;01&#x27;</span> , <span class="hljs-string">&#x27;03&#x27;</span> , <span class="hljs-number">99</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;02&#x27;</span> , <span class="hljs-string">&#x27;01&#x27;</span> , <span class="hljs-number">70</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;02&#x27;</span> , <span class="hljs-string">&#x27;02&#x27;</span> , <span class="hljs-number">60</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;02&#x27;</span> , <span class="hljs-string">&#x27;03&#x27;</span> , <span class="hljs-number">80</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;03&#x27;</span> , <span class="hljs-string">&#x27;01&#x27;</span> , <span class="hljs-number">80</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;03&#x27;</span> , <span class="hljs-string">&#x27;02&#x27;</span> , <span class="hljs-number">80</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;03&#x27;</span> , <span class="hljs-string">&#x27;03&#x27;</span> , <span class="hljs-number">80</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;04&#x27;</span> , <span class="hljs-string">&#x27;01&#x27;</span> , <span class="hljs-number">50</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;04&#x27;</span> , <span class="hljs-string">&#x27;02&#x27;</span> , <span class="hljs-number">30</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;04&#x27;</span> , <span class="hljs-string">&#x27;03&#x27;</span> , <span class="hljs-number">20</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;05&#x27;</span> , <span class="hljs-string">&#x27;01&#x27;</span> , <span class="hljs-number">76</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;05&#x27;</span> , <span class="hljs-string">&#x27;02&#x27;</span> , <span class="hljs-number">87</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;06&#x27;</span> , <span class="hljs-string">&#x27;01&#x27;</span> , <span class="hljs-number">31</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;06&#x27;</span> , <span class="hljs-string">&#x27;03&#x27;</span> , <span class="hljs-number">34</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;07&#x27;</span> , <span class="hljs-string">&#x27;02&#x27;</span> , <span class="hljs-number">89</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SC <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;07&#x27;</span> , <span class="hljs-string">&#x27;03&#x27;</span> , <span class="hljs-number">98</span>);<br></code></pre></td></tr></table></figure>
+<p><strong>课程表 Course</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> Course(Cid <span class="hljs-type">varchar</span>(<span class="hljs-number">10</span>),Cname <span class="hljs-type">varchar</span>(<span class="hljs-number">10</span>),Tid <span class="hljs-type">varchar</span>(<span class="hljs-number">10</span>));<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> Course <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;01&#x27;</span> , <span class="hljs-string">&#x27;语文&#x27;</span> , <span class="hljs-string">&#x27;02&#x27;</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> Course <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;02&#x27;</span> , <span class="hljs-string">&#x27;数学&#x27;</span> , <span class="hljs-string">&#x27;01&#x27;</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> Course <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;03&#x27;</span> , <span class="hljs-string">&#x27;英语&#x27;</span> , <span class="hljs-string">&#x27;03&#x27;</span>);<br></code></pre></td></tr></table></figure>
+<p><strong>教师表 Teacher</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> Teacher(Tid <span class="hljs-type">varchar</span>(<span class="hljs-number">10</span>),Tname <span class="hljs-type">varchar</span>(<span class="hljs-number">10</span>));<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> Teacher <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;01&#x27;</span> , <span class="hljs-string">&#x27;张三&#x27;</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> Teacher <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;02&#x27;</span> , <span class="hljs-string">&#x27;李四&#x27;</span>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> Teacher <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;03&#x27;</span> , <span class="hljs-string">&#x27;王五&#x27;</span>);<br></code></pre></td></tr></table></figure>
+<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<h3 id="查询-01-课程比-02-课程成绩高的学生的信息及课程分数"><a class="markdownIt-Anchor" href="#查询-01-课程比-02-课程成绩高的学生的信息及课程分数"></a> 查询 “01” 课程比 “02” 课程成绩高的学生的信息及课程分数</h3>
+<p>首先从 student 表选择所有学生信息， sc 表分别选择两个课程的成绩。</p>
+<p>where 语句控制 01 课程比 02 课程成绩高，同时将 select 回来的三个结果连在一起</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> s.<span class="hljs-operator">*</span>, sc_01.score <span class="hljs-keyword">as</span> score_01, sc_01.score <span class="hljs-keyword">as</span> score_02<br><span class="hljs-keyword">from</span> student s,<br>     (<span class="hljs-keyword">select</span> Sid, score <span class="hljs-keyword">from</span> sc <span class="hljs-keyword">where</span> Cid <span class="hljs-operator">=</span> <span class="hljs-number">01</span>) sc_01,<br>     (<span class="hljs-keyword">select</span> Sid, score <span class="hljs-keyword">from</span> sc <span class="hljs-keyword">where</span> Cid <span class="hljs-operator">=</span> <span class="hljs-number">02</span>) sc_02<br><span class="hljs-keyword">where</span> sc_01.Sid <span class="hljs-operator">=</span> sc_02.Sid<br>  <span class="hljs-keyword">and</span> sc_01.score <span class="hljs-operator">&gt;</span> sc_02.score<br>  <span class="hljs-keyword">and</span> s.Sid <span class="hljs-operator">=</span> sc_01.Sid;<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+---------------------+------+----------+----------+</span><br><span class="hljs-operator">|</span> Sid  <span class="hljs-operator">|</span> Sname  <span class="hljs-operator">|</span> Sage                <span class="hljs-operator">|</span> Ssex <span class="hljs-operator">|</span> score_01 <span class="hljs-operator">|</span> score_02 <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+---------------------+------+----------+----------+</span><br><span class="hljs-operator">|</span> <span class="hljs-number">02</span>   <span class="hljs-operator">|</span> 钱电   <span class="hljs-operator">|</span> <span class="hljs-number">1990</span><span class="hljs-number">-12</span><span class="hljs-number">-21</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-operator">|</span> 男   <span class="hljs-operator">|</span>     <span class="hljs-number">70.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">60.0</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">04</span>   <span class="hljs-operator">|</span> 李云   <span class="hljs-operator">|</span> <span class="hljs-number">1990</span><span class="hljs-number">-08</span><span class="hljs-number">-06</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-operator">|</span> 男   <span class="hljs-operator">|</span>     <span class="hljs-number">50.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">30.0</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+---------------------+------+----------+----------+</span><br><span class="hljs-number">2</span> <span class="hljs-keyword">rows</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">set</span> (<span class="hljs-number">0.00</span> sec)<br></code></pre></td></tr></table></figure>
+<h3 id="查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩"><a class="markdownIt-Anchor" href="#查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩"></a> 查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩</h3>
+<p>从 student 表和 sc 表选择信息。</p>
+<p>按学生编号分组后，求出 score 的平均值，并筛选。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> s.sid, sname, <span class="hljs-built_in">avg</span>(score) <span class="hljs-keyword">as</span> avg_score<br><span class="hljs-keyword">from</span> student <span class="hljs-keyword">as</span> s,<br>     sc<br><span class="hljs-keyword">where</span> s.sid <span class="hljs-operator">=</span> sc.sid<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> s.sid<br><span class="hljs-keyword">having</span> avg_score <span class="hljs-operator">&gt;</span> <span class="hljs-number">60</span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+-----------+</span><br><span class="hljs-operator">|</span> sid  <span class="hljs-operator">|</span> sname  <span class="hljs-operator">|</span> avg_score <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+-----------+</span><br><span class="hljs-operator">|</span> <span class="hljs-number">01</span>   <span class="hljs-operator">|</span> 赵雷   <span class="hljs-operator">|</span>  <span class="hljs-number">89.66667</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">02</span>   <span class="hljs-operator">|</span> 钱电   <span class="hljs-operator">|</span>  <span class="hljs-number">70.00000</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">03</span>   <span class="hljs-operator">|</span> 孙风   <span class="hljs-operator">|</span>  <span class="hljs-number">80.00000</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">05</span>   <span class="hljs-operator">|</span> 周梅   <span class="hljs-operator">|</span>  <span class="hljs-number">81.50000</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">07</span>   <span class="hljs-operator">|</span> 郑竹   <span class="hljs-operator">|</span>  <span class="hljs-number">93.50000</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+-----------+</span><br><span class="hljs-number">5</span> <span class="hljs-keyword">rows</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">set</span> (<span class="hljs-number">0.00</span> sec)<br></code></pre></td></tr></table></figure>
+<h3 id="查询-sc-表存在成绩的学生信息"><a class="markdownIt-Anchor" href="#查询-sc-表存在成绩的学生信息"></a> 查询 SC 表存在成绩的学生信息</h3>
+<p>查询 student 表。</p>
+<p>筛选条件放在where语句里。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span><br><span class="hljs-keyword">from</span> student s<br><span class="hljs-keyword">where</span> Sid <span class="hljs-keyword">in</span> (<span class="hljs-keyword">select</span> Sid <span class="hljs-keyword">from</span> sc <span class="hljs-keyword">where</span> score <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+---------------------+------+</span><br><span class="hljs-operator">|</span> Sid  <span class="hljs-operator">|</span> Sname  <span class="hljs-operator">|</span> Sage                <span class="hljs-operator">|</span> Ssex <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+---------------------+------+</span><br><span class="hljs-operator">|</span> <span class="hljs-number">01</span>   <span class="hljs-operator">|</span> 赵雷   <span class="hljs-operator">|</span> <span class="hljs-number">1990</span><span class="hljs-number">-01</span><span class="hljs-number">-01</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-operator">|</span> 男   <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">02</span>   <span class="hljs-operator">|</span> 钱电   <span class="hljs-operator">|</span> <span class="hljs-number">1990</span><span class="hljs-number">-12</span><span class="hljs-number">-21</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-operator">|</span> 男   <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">03</span>   <span class="hljs-operator">|</span> 孙风   <span class="hljs-operator">|</span> <span class="hljs-number">1990</span><span class="hljs-number">-05</span><span class="hljs-number">-20</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-operator">|</span> 男   <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">04</span>   <span class="hljs-operator">|</span> 李云   <span class="hljs-operator">|</span> <span class="hljs-number">1990</span><span class="hljs-number">-08</span><span class="hljs-number">-06</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-operator">|</span> 男   <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">05</span>   <span class="hljs-operator">|</span> 周梅   <span class="hljs-operator">|</span> <span class="hljs-number">1991</span><span class="hljs-number">-12</span><span class="hljs-number">-01</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-operator">|</span> 女   <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">06</span>   <span class="hljs-operator">|</span> 吴兰   <span class="hljs-operator">|</span> <span class="hljs-number">1992</span><span class="hljs-number">-03</span><span class="hljs-number">-01</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-operator">|</span> 女   <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">07</span>   <span class="hljs-operator">|</span> 郑竹   <span class="hljs-operator">|</span> <span class="hljs-number">1989</span><span class="hljs-number">-07</span><span class="hljs-number">-01</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-operator">|</span> 女   <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+---------------------+------+</span><br><span class="hljs-number">7</span> <span class="hljs-keyword">rows</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">set</span> (<span class="hljs-number">0.00</span> sec)<br></code></pre></td></tr></table></figure>
+<h3 id="查询所有同学的学生编号-学生姓名-选课总数-所有课程的总成绩没成绩的显示为-null"><a class="markdownIt-Anchor" href="#查询所有同学的学生编号-学生姓名-选课总数-所有课程的总成绩没成绩的显示为-null"></a> 查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩(没成绩的显示为 null )</h3>
+<p>因为有空值，所以用 join。且因为空值是在 sc 里，让 sc left join student 表。</p>
+<p>同时对学生编号分组，统计每个人的选课总数和总成绩。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> s.Sid, s.Sname, <span class="hljs-built_in">count</span>(Cid) <span class="hljs-keyword">as</span> count_course, <span class="hljs-built_in">sum</span>(score) <span class="hljs-keyword">as</span> sum_score<br><span class="hljs-keyword">from</span> student s<br>         <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> sc <span class="hljs-keyword">on</span> s.Sid <span class="hljs-operator">=</span> sc.Sid<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> s.Sid<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+--------------+-----------+</span><br><span class="hljs-operator">|</span> sid  <span class="hljs-operator">|</span> sname  <span class="hljs-operator">|</span> 选课总数     <span class="hljs-operator">|</span> 总成绩    <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+--------------+-----------+</span><br><span class="hljs-operator">|</span> <span class="hljs-number">01</span>   <span class="hljs-operator">|</span> 赵雷   <span class="hljs-operator">|</span>            <span class="hljs-number">3</span> <span class="hljs-operator">|</span>     <span class="hljs-number">269.0</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">02</span>   <span class="hljs-operator">|</span> 钱电   <span class="hljs-operator">|</span>            <span class="hljs-number">3</span> <span class="hljs-operator">|</span>     <span class="hljs-number">210.0</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">03</span>   <span class="hljs-operator">|</span> 孙风   <span class="hljs-operator">|</span>            <span class="hljs-number">3</span> <span class="hljs-operator">|</span>     <span class="hljs-number">240.0</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">04</span>   <span class="hljs-operator">|</span> 李云   <span class="hljs-operator">|</span>            <span class="hljs-number">3</span> <span class="hljs-operator">|</span>     <span class="hljs-number">100.0</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">05</span>   <span class="hljs-operator">|</span> 周梅   <span class="hljs-operator">|</span>            <span class="hljs-number">2</span> <span class="hljs-operator">|</span>     <span class="hljs-number">163.0</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">06</span>   <span class="hljs-operator">|</span> 吴兰   <span class="hljs-operator">|</span>            <span class="hljs-number">2</span> <span class="hljs-operator">|</span>      <span class="hljs-number">65.0</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">07</span>   <span class="hljs-operator">|</span> 郑竹   <span class="hljs-operator">|</span>            <span class="hljs-number">2</span> <span class="hljs-operator">|</span>     <span class="hljs-number">187.0</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">08</span>   <span class="hljs-operator">|</span> 王菊   <span class="hljs-operator">|</span>            <span class="hljs-number">0</span> <span class="hljs-operator">|</span>      <span class="hljs-keyword">NULL</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+--------------+-----------+</span><br><span class="hljs-number">8</span> <span class="hljs-keyword">rows</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">set</span> (<span class="hljs-number">0.00</span> sec)<br></code></pre></td></tr></table></figure>
+<h3 id="查带有成绩的学生信息"><a class="markdownIt-Anchor" href="#查带有成绩的学生信息"></a> 查带有成绩的学生信息</h3>
+<p>行转列时，使用 sum(case when … then …)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> s.Sid,<br>       s.Sname,<br>       <span class="hljs-built_in">count</span>(Cid)                                       <span class="hljs-keyword">as</span> count_course,<br>       <span class="hljs-built_in">sum</span>(score)                                       <span class="hljs-keyword">as</span> sum_score,<br>       <span class="hljs-built_in">sum</span>(<span class="hljs-keyword">case</span> <span class="hljs-keyword">when</span> Cid <span class="hljs-operator">=</span> <span class="hljs-number">01</span> <span class="hljs-keyword">then</span> score <span class="hljs-keyword">else</span> <span class="hljs-keyword">null</span> <span class="hljs-keyword">end</span>) <span class="hljs-keyword">as</span> score_01,<br>       <span class="hljs-built_in">sum</span>(<span class="hljs-keyword">case</span> <span class="hljs-keyword">when</span> Cid <span class="hljs-operator">=</span> <span class="hljs-number">02</span> <span class="hljs-keyword">then</span> score <span class="hljs-keyword">else</span> <span class="hljs-keyword">null</span> <span class="hljs-keyword">end</span>) <span class="hljs-keyword">as</span> score_02,<br>       <span class="hljs-built_in">sum</span>(<span class="hljs-keyword">case</span> <span class="hljs-keyword">when</span> Cid <span class="hljs-operator">=</span> <span class="hljs-number">03</span> <span class="hljs-keyword">then</span> score <span class="hljs-keyword">else</span> <span class="hljs-keyword">null</span> <span class="hljs-keyword">end</span>) <span class="hljs-keyword">as</span> score_03<br><span class="hljs-keyword">from</span> student s,<br>     sc<br><span class="hljs-keyword">where</span> s.Sid <span class="hljs-operator">=</span> sc.Sid<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> s.Sid<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+--------------+-----------+----------+----------+----------+</span><br><span class="hljs-operator">|</span> sid  <span class="hljs-operator">|</span> sname  <span class="hljs-operator">|</span> 选课总数     <span class="hljs-operator">|</span> 总成绩    <span class="hljs-operator">|</span> score_01 <span class="hljs-operator">|</span> score_02 <span class="hljs-operator">|</span> score_03 <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+--------------+-----------+----------+----------+----------+</span><br><span class="hljs-operator">|</span> <span class="hljs-number">01</span>   <span class="hljs-operator">|</span> 赵雷   <span class="hljs-operator">|</span>            <span class="hljs-number">3</span> <span class="hljs-operator">|</span>     <span class="hljs-number">269.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">80.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">90.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">99.0</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">02</span>   <span class="hljs-operator">|</span> 钱电   <span class="hljs-operator">|</span>            <span class="hljs-number">3</span> <span class="hljs-operator">|</span>     <span class="hljs-number">210.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">70.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">60.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">80.0</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">03</span>   <span class="hljs-operator">|</span> 孙风   <span class="hljs-operator">|</span>            <span class="hljs-number">3</span> <span class="hljs-operator">|</span>     <span class="hljs-number">240.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">80.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">80.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">80.0</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">04</span>   <span class="hljs-operator">|</span> 李云   <span class="hljs-operator">|</span>            <span class="hljs-number">3</span> <span class="hljs-operator">|</span>     <span class="hljs-number">100.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">50.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">30.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">20.0</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">05</span>   <span class="hljs-operator">|</span> 周梅   <span class="hljs-operator">|</span>            <span class="hljs-number">2</span> <span class="hljs-operator">|</span>     <span class="hljs-number">163.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">76.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">87.0</span> <span class="hljs-operator">|</span>     <span class="hljs-keyword">NULL</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">06</span>   <span class="hljs-operator">|</span> 吴兰   <span class="hljs-operator">|</span>            <span class="hljs-number">2</span> <span class="hljs-operator">|</span>      <span class="hljs-number">65.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">31.0</span> <span class="hljs-operator">|</span>     <span class="hljs-keyword">NULL</span> <span class="hljs-operator">|</span>     <span class="hljs-number">34.0</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">07</span>   <span class="hljs-operator">|</span> 郑竹   <span class="hljs-operator">|</span>            <span class="hljs-number">2</span> <span class="hljs-operator">|</span>     <span class="hljs-number">187.0</span> <span class="hljs-operator">|</span>     <span class="hljs-keyword">NULL</span> <span class="hljs-operator">|</span>     <span class="hljs-number">89.0</span> <span class="hljs-operator">|</span>     <span class="hljs-number">98.0</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+--------------+-----------+----------+----------+----------+</span><br><span class="hljs-number">7</span> <span class="hljs-keyword">rows</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">set</span> (<span class="hljs-number">0.00</span> sec)<br></code></pre></td></tr></table></figure>
+<h3 id="查询李姓老师的数量"><a class="markdownIt-Anchor" href="#查询李姓老师的数量"></a> 查询「李」姓老师的数量</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-built_in">count</span>(Tid)<br><span class="hljs-keyword">from</span> teacher t<br><span class="hljs-keyword">where</span> Tname <span class="hljs-keyword">like</span> &quot;李%&quot;<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-operator">+</span><span class="hljs-comment">--------------+</span><br><span class="hljs-operator">|</span> <span class="hljs-built_in">count</span>(tname) <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">--------------+</span><br><span class="hljs-operator">|</span>            <span class="hljs-number">1</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">--------------+</span><br><span class="hljs-number">1</span> <span class="hljs-type">row</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">set</span> (<span class="hljs-number">0.00</span> sec)<br></code></pre></td></tr></table></figure>
+<h3 id="查询学过张三老师授课的同学的信息"><a class="markdownIt-Anchor" href="#查询学过张三老师授课的同学的信息"></a> 查询学过「张三」老师授课的同学的信息</h3>
+<p>个人解法</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> s.<span class="hljs-operator">*</span><br><span class="hljs-keyword">from</span> student s,<br>     teacher t,<br>     sc,<br>     course c<br><span class="hljs-keyword">where</span> sc.Sid <span class="hljs-operator">=</span> s.Sid<br>  <span class="hljs-keyword">and</span> c.Tid <span class="hljs-operator">=</span> t.Tid<br>  <span class="hljs-keyword">and</span> c.Cid <span class="hljs-operator">=</span> sc.Cid<br>  <span class="hljs-keyword">and</span> t.Tname <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;张三&#x27;</span><br></code></pre></td></tr></table></figure>
+<p>优质解法</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span><br><span class="hljs-keyword">from</span> student<br><span class="hljs-keyword">where</span> sid <span class="hljs-keyword">in</span> (<br>    <span class="hljs-keyword">select</span> sid<br>    <span class="hljs-keyword">from</span> sc,<br>         course,<br>         teacher<br>    <span class="hljs-keyword">where</span> sc.cid <span class="hljs-operator">=</span> course.cid<br>      <span class="hljs-keyword">and</span> course.tid <span class="hljs-operator">=</span> teacher.tid<br>      <span class="hljs-keyword">and</span> tname <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;张三&#x27;</span><br>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+---------------------+------+</span><br><span class="hljs-operator">|</span> Sid  <span class="hljs-operator">|</span> Sname  <span class="hljs-operator">|</span> Sage                <span class="hljs-operator">|</span> Ssex <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+---------------------+------+</span><br><span class="hljs-operator">|</span> <span class="hljs-number">01</span>   <span class="hljs-operator">|</span> 赵雷   <span class="hljs-operator">|</span> <span class="hljs-number">1990</span><span class="hljs-number">-01</span><span class="hljs-number">-01</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-operator">|</span> 男   <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">02</span>   <span class="hljs-operator">|</span> 钱电   <span class="hljs-operator">|</span> <span class="hljs-number">1990</span><span class="hljs-number">-12</span><span class="hljs-number">-21</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-operator">|</span> 男   <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">03</span>   <span class="hljs-operator">|</span> 孙风   <span class="hljs-operator">|</span> <span class="hljs-number">1990</span><span class="hljs-number">-05</span><span class="hljs-number">-20</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-operator">|</span> 男   <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">04</span>   <span class="hljs-operator">|</span> 李云   <span class="hljs-operator">|</span> <span class="hljs-number">1990</span><span class="hljs-number">-08</span><span class="hljs-number">-06</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-operator">|</span> 男   <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">05</span>   <span class="hljs-operator">|</span> 周梅   <span class="hljs-operator">|</span> <span class="hljs-number">1991</span><span class="hljs-number">-12</span><span class="hljs-number">-01</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-operator">|</span> 女   <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span> <span class="hljs-number">07</span>   <span class="hljs-operator">|</span> 郑竹   <span class="hljs-operator">|</span> <span class="hljs-number">1989</span><span class="hljs-number">-07</span><span class="hljs-number">-01</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-operator">|</span> 女   <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+---------------------+------+</span><br><span class="hljs-number">6</span> <span class="hljs-keyword">rows</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">set</span> (<span class="hljs-number">0.00</span> sec)<br></code></pre></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/sqss/">sqss</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/p/11fd/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">剑指Offer Day-08 动态规划（简单）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/p/9c6a/">
+                        <span class="hidden-mobile">剑指Offer Day-07</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'TBDGF/blog.comments');
+      s.setAttribute('issue-term', 'title');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        冀ICP备2020025647号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
