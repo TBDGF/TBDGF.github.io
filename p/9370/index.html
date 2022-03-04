@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2021/02/14/tree.jpg">
 <meta property="article:published_time" content="2022-02-24T13:35:20.000Z">
-<meta property="article:modified_time" content="2022-02-26T11:54:22.794Z">
+<meta property="article:modified_time" content="2022-03-04T11:51:55.751Z">
 <meta property="article:author" content="Allen Ji">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="cpp">
@@ -211,7 +211,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6.5k 字
+      6.6k 字
     </span>
   
 
@@ -220,7 +220,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      20 分钟
+      21 分钟
     </span>
   
 
@@ -261,7 +261,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：5 天前
+                  本文最后更新于：1 分钟前
                 
               </p>
             
@@ -361,11 +361,11 @@
 <p>以此递归，直到所有位被确定。</p>
 <p><strong>注意</strong></p>
 <ul>
-<li>交换时，可用set来保存每一层待交换的字符，遇到重复时可剪枝。跳过这个字符继续交换下一个字符。</li>
+<li>交换时，可用 set 来保存每一层待交换的字符，遇到重复时可剪枝。跳过这个字符继续交换下一个字符。</li>
 <li>在交换完毕并完成下一层的搜索后，需要恢复交换。以免影响相邻层或是下一次交换。</li>
 </ul>
 <p><strong>代码</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br>    vector&lt;string&gt; ans;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;string&gt; <span class="hljs-title">permutation</span><span class="hljs-params">(string s)</span> </span>&#123;<br>        <span class="hljs-built_in">dfs</span>(s, <span class="hljs-number">0</span>);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(string s, <span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>        <span class="hljs-comment">//到达最后一层，直接返回</span><br>        <span class="hljs-keyword">if</span> (x == s.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>) &#123;<br>            ans.<span class="hljs-built_in">push_back</span>(s);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-comment">//使用set去重</span><br>        set&lt;<span class="hljs-keyword">char</span>&gt; set;<br>        <span class="hljs-comment">//从x位开始，分别与后面交换</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = x; i &lt; s.<span class="hljs-built_in">size</span>(); ++i) &#123;<br>            <span class="hljs-comment">//如果待交换的字符重复，剪枝</span><br>            <span class="hljs-keyword">if</span> (set.<span class="hljs-built_in">find</span>(s[i]) != set.<span class="hljs-built_in">end</span>())<br>                <span class="hljs-keyword">continue</span>;<br>            set.<span class="hljs-built_in">insert</span>(s[i]);<br>            <span class="hljs-comment">//交换</span><br>            <span class="hljs-built_in">swap</span>(s[i], s[x]);<br>            <span class="hljs-comment">//搜索下一层</span><br>            <span class="hljs-built_in">dfs</span>(s, x + <span class="hljs-number">1</span>);<br>            <span class="hljs-comment">//恢复交换，避免对s的修改影响相邻层或是下一次交换</span><br>            <span class="hljs-built_in">swap</span>(s[i], s[x]);<br>        &#125;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br>    vector&lt;string&gt; ans;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;string&gt; <span class="hljs-title">permutation</span><span class="hljs-params">(string s)</span> </span>&#123;<br>        <span class="hljs-built_in">dfs</span>(s, <span class="hljs-number">0</span>);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(string s, <span class="hljs-keyword">int</span> depth)</span> </span>&#123;<br>        <span class="hljs-comment">//到达最后一层，直接返回</span><br>        <span class="hljs-keyword">if</span> (depth == s.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>) &#123;<br>            ans.<span class="hljs-built_in">push_back</span>(s);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-comment">//使用set去重</span><br>        set&lt;<span class="hljs-keyword">char</span>&gt; set;<br>        <span class="hljs-comment">//从x位开始，分别与后面交换</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = depth; i &lt; s.<span class="hljs-built_in">size</span>(); ++i) &#123;<br>            <span class="hljs-comment">//如果待交换的字符重复，剪枝</span><br>            <span class="hljs-keyword">if</span> (set.<span class="hljs-built_in">count</span>(s[i]) &gt; <span class="hljs-number">0</span>)<br>                <span class="hljs-keyword">continue</span>;<br>            set.<span class="hljs-built_in">insert</span>(s[i]);<br>            <span class="hljs-comment">//交换</span><br>            <span class="hljs-built_in">swap</span>(s[i], s[depth]);<br>            <span class="hljs-comment">//搜索下一层</span><br>            <span class="hljs-built_in">dfs</span>(s, depth + <span class="hljs-number">1</span>);<br>            <span class="hljs-comment">//恢复交换，避免对s的修改影响相邻层或是下一次交换</span><br>            <span class="hljs-built_in">swap</span>(s[i], s[depth]);<br>        &#125;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -404,7 +404,7 @@
                     
                       <a href="/p/9faa/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">剑指Offer Day-02</span>
+                        <span class="hidden-mobile">剑指Offer Day-02 链表（简单）</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
