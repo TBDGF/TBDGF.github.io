@@ -24,7 +24,7 @@
 <meta property="og:description" content="剑指Offer Day-08 动态规划（简单）">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-03T00:47:10.000Z">
-<meta property="article:modified_time" content="2022-03-03T10:13:10.752Z">
+<meta property="article:modified_time" content="2022-03-05T04:15:17.010Z">
 <meta property="article:author" content="Allen Ji">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="cpp">
@@ -257,12 +257,6 @@
             <!-- SEO header -->
             <h1 style="display: none">剑指Offer Day-08 动态规划（简单）</h1>
             
-              <p class="note note-info">
-                
-                  本文最后更新于：1 天前
-                
-              </p>
-            
             <div class="markdown-body">
               <p>剑指Offer Day-08 动态规划（简单）</p>
 <span id="more"></span>
@@ -305,12 +299,12 @@
 <h3 id="题解-2"><a class="markdownIt-Anchor" href="#题解-2"></a> 题解</h3>
 <p>我们从后往前看，当青蛙要跳上 n 阶时，要么跳一步，要么跳两步。</p>
 <p>所以 n 阶的跳法就是 n-1 阶和 n-2阶的和。</p>
-<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-function"><span class="hljs-title">f</span>(<span class="hljs-variable">n</span>)=<span class="hljs-title">f</span>(<span class="hljs-variable">n</span>-<span class="hljs-number">1</span>)+<span class="hljs-title">f</span>(<span class="hljs-variable">n</span>-<span class="hljs-number">2</span>)</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs inform7">dp<span class="hljs-comment">[i]</span>=dp<span class="hljs-comment">[i-1]</span> + dp<span class="hljs-comment">[i-2]</span><br></code></pre></td></tr></table></figure>
 <p>本体与斐波那契数列类似，都可以用动态规划。</p>
 <p>注意边界条件</p>
 <blockquote>
-<p>f(0)=1</p>
-<p>f(1)=1</p>
+<p>dp[0]=1</p>
+<p>dp[1]=1</p>
 </blockquote>
 <p><strong>代码</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">numWays</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> MOD = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br>        <span class="hljs-keyword">if</span> (n &lt; <span class="hljs-number">2</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> first = <span class="hljs-number">0</span>, second = <span class="hljs-number">1</span>, third = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; ++i) &#123;<br>            first = second;<br>            second = third;<br>            third = (first + second) % MOD;<br>        &#125;<br>        <span class="hljs-keyword">return</span> third;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
