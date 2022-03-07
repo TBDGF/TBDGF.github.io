@@ -13,10 +13,10 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="本文将演示如何在ubuntu上部署mysql，创建角色和赋予权限">
   <meta name="author" content="Allen Ji">
   <meta name="keywords" content="">
-  <meta name="description" content="本文将演示如何在ubuntu上部署mysql，创建角色和赋予权限">
+  
+    <meta name="description" content="本文将演示如何在ubuntu上部署mysql，创建角色和赋予权限">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[mysql]MySQL ubuntu部署">
 <meta property="og:url" content="http://example.com/p/6601/index.html">
@@ -29,6 +29,7 @@
 <meta property="article:tag" content="mysql">
 <meta property="article:tag" content="ubuntu">
 <meta name="twitter:card" content="summary_large_image">
+  
   
   <title>[mysql]MySQL ubuntu部署 - Allen Ji&#39;s blog</title>
 
@@ -67,11 +68,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JJP36UKGslyIV4uRQuzWwGnz-gzGzoHsz","app_key":"AJTVRXntUt4z3TPQIwUsiQCU","server_url":"https://jjp36ukg.lc-cn-n1-shared.com","path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JJP36UKGslyIV4uRQuzWwGnz-gzGzoHsz","app_key":"AJTVRXntUt4z3TPQIwUsiQCU","server_url":"https://jjp36ukg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.1"></head>
 
 
 <body>
@@ -183,7 +184,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.loli.net/2021/09/22/mXbyv9l4RsSYQt8.png') no-repeat center center;
+         style="background: url('https://cdn.jsdelivr.net/gh/TBDGF/TBDGF.github.io@master/img/props/banner-default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -262,7 +263,7 @@
 <span id="more"></span>
 <h2 id="安装mysql"><a class="markdownIt-Anchor" href="#安装mysql"></a> 安装mysql</h2>
 <p>使用命令行安装mysql</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">sudo apt-<span class="hljs-keyword">get</span> install mysql-<span class="hljs-keyword">server</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs pgsql">sudo apt-<span class="hljs-keyword">get</span> install mysql-<span class="hljs-keyword">server</span><br></code></pre></td></tr></table></figure>
 <h2 id="配置mysql"><a class="markdownIt-Anchor" href="#配置mysql"></a> 配置mysql</h2>
 <h3 id="1初始化"><a class="markdownIt-Anchor" href="#1初始化"></a> 1.初始化</h3>
 <p>命令行</p>
@@ -523,7 +524,7 @@
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
   </script>
