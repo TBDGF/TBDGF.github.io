@@ -16,19 +16,22 @@
   <meta name="author" content="Allen Ji">
   <meta name="keywords" content="">
   
-    <meta name="description" content="面试算法题-02">
+    <meta name="description" content="面试算法题 03">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试算法题 03">
 <meta property="og:url" content="http://example.com/p/9160/index.html">
 <meta property="og:site_name" content="Allen Ji&#39;s blog">
-<meta property="og:description" content="面试算法题-02">
+<meta property="og:description" content="面试算法题 03">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/TBDGF/TBDGF.github.io@master/img/9160/1626420311-PkUiGI-image1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/TBDGF/TBDGF.github.io@master/img/9160/1626420311-PkUiGI-image1.png">
 <meta property="article:published_time" content="2022-03-04T13:30:11.000Z">
-<meta property="article:modified_time" content="2022-03-07T03:59:27.230Z">
+<meta property="article:modified_time" content="2022-03-07T14:02:53.928Z">
 <meta property="article:author" content="Allen Ji">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="cpp">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/TBDGF/TBDGF.github.io@master/img/9160/1626420311-PkUiGI-image1.png">
   
   
   <title>面试算法题 03 - Allen Ji&#39;s blog</title>
@@ -210,7 +213,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.2k 字
+      5.9k 字
     </span>
   
 
@@ -219,7 +222,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13 分钟
+      19 分钟
     </span>
   
 
@@ -259,7 +262,7 @@
             <h1 style="display: none">面试算法题 03</h1>
             
             <div class="markdown-body">
-              <p>面试算法题-02</p>
+              <p>面试算法题 03</p>
 <span id="more"></span>
 <h2 id="求出反转的数字对"><a class="markdownIt-Anchor" href="#求出反转的数字对"></a> 求出反转的数字对</h2>
 <h3 id="描述"><a class="markdownIt-Anchor" href="#描述"></a> 描述</h3>
@@ -314,6 +317,37 @@
 <p>参考归并的思想，将 K 个链表先分，再治。</p>
 <p>每一次合并返回合并好的链表。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode *<span class="hljs-title">mergeKLists</span><span class="hljs-params">(vector&lt;ListNode *&gt; &amp;lists)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">merge</span>(lists, <span class="hljs-number">0</span>, lists.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>);<br>    &#125;<br><br>    <span class="hljs-function">ListNode *<span class="hljs-title">mergeTwoLists</span><span class="hljs-params">(ListNode *aHead, ListNode *bHead)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (!aHead || !bHead)<br>            <span class="hljs-keyword">return</span> aHead ? aHead : bHead;<br>        ListNode *aPtr = aHead, *bPtr = bHead, *head = <span class="hljs-keyword">new</span> <span class="hljs-built_in">ListNode</span>(<span class="hljs-number">0</span>), *tail = head;<br>        <span class="hljs-keyword">while</span> (aPtr &amp;&amp; bPtr) &#123;<br>            <span class="hljs-keyword">if</span> (aPtr-&gt;val &lt; bPtr-&gt;val) &#123;<br>                tail-&gt;next = aPtr;<br>                aPtr = aPtr-&gt;next;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                tail-&gt;next = bPtr;<br>                bPtr = bPtr-&gt;next;<br>            &#125;<br>            tail = tail-&gt;next;<br>        &#125;<br>        tail-&gt;next = (aPtr ? aPtr : bPtr);<br>        <span class="hljs-keyword">return</span> head-&gt;next;<br>    &#125;<br><br>    <span class="hljs-function">ListNode *<span class="hljs-title">merge</span><span class="hljs-params">(vector&lt;ListNode *&gt; &amp;lists, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span> </span>&#123;<br>        <span class="hljs-comment">//分到单个链表时，返回该链表</span><br>        <span class="hljs-keyword">if</span> (l == r)<br>            <span class="hljs-keyword">return</span> lists[l];<br>        <span class="hljs-comment">//边界判断</span><br>        <span class="hljs-keyword">if</span> (l &gt; r)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>        <span class="hljs-type">int</span> mid = (l + r) / <span class="hljs-number">2</span>;<br>        <span class="hljs-comment">//返回合并好的链表</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">mergeTwoLists</span>(<span class="hljs-built_in">merge</span>(lists, l, mid), <span class="hljs-built_in">merge</span>(lists, mid + <span class="hljs-number">1</span>, r));<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h2 id="143-重排链表"><a class="markdownIt-Anchor" href="#143-重排链表"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reorder-list/">143. 重排链表</a></h2>
+<h3 id="描述-4"><a class="markdownIt-Anchor" href="#描述-4"></a> 描述</h3>
+<p>给定一个单链表 L 的头节点 head ，单链表 L 表示为：</p>
+<p>L0 → L1 → … → Ln - 1 → Ln<br />
+请将其重新排列后变为：</p>
+<p>L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …<br />
+不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。</p>
+<p><strong>示例 1</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TBDGF/TBDGF.github.io@master/img/9160/1626420311-PkUiGI-image1.png" srcset="/img/loading.gif" lazyload alt="img" /></p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dns">输入：head = [<span class="hljs-number">1,2,3,4</span>]<br>输出：[<span class="hljs-number">1,4,2,3</span>]<br></code></pre></td></tr></table></figure>
+<p><strong>示例 2</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TBDGF/TBDGF.github.io@master/img/9160/1626420311-PkUiGI-image1.png" srcset="/img/loading.gif" lazyload alt="img" /></p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs accesslog">输入：head = <span class="hljs-string">[1,2,3,4,5]</span><br>输出：<span class="hljs-string">[1,5,2,4,3]</span><br></code></pre></td></tr></table></figure>
+<p><strong>提示</strong></p>
+<ul>
+<li>链表的长度范围为 [1, 5 * 104]</li>
+<li>1 &lt;= node.val &lt;= 1000</li>
+</ul>
+<h3 id="题解-3"><a class="markdownIt-Anchor" href="#题解-3"></a> 题解</h3>
+<p>寻找链表中点 + 链表逆序 + 合并链表</p>
+<p>注意到目标链表即为将原链表的左半端和反转后的右半端合并后的结果。</p>
+<p>这样我们的任务即可划分为三步：</p>
+<ol>
+<li>找到原链表的中点。我们可以使用快慢指针来找到链表的中间节点。</li>
+<li>将原链表的右半端反转。我们可以使用迭代法实现链表的反转。</li>
+<li>将原链表的两端合并。因为两链表长度相差不超过 11，因此直接合并即可。</li>
+</ol>
+<p><strong>注意</strong></p>
+<p>这里的合并并非有序合并，直接一步一步合并即可。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * struct ListNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     ListNode *next;</span><br><span class="hljs-comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span><br><span class="hljs-comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span><br><span class="hljs-comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span><br><span class="hljs-comment"> * &#125;;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">reorderList</span><span class="hljs-params">(ListNode *head)</span> </span>&#123;<br>        ListNode *aTail = <span class="hljs-built_in">findMid</span>(head), *bHead = aTail-&gt;next;<br>        <span class="hljs-comment">//拆分链表</span><br>        aTail-&gt;next = <span class="hljs-literal">NULL</span>;<br>        <span class="hljs-comment">//反转 b 链表</span><br>        bHead = <span class="hljs-built_in">reverseList</span>(bHead);<br>        <span class="hljs-comment">//合并</span><br>        head = <span class="hljs-built_in">mergeTwoList</span>(head, bHead);<br>    &#125;<br><br>    <span class="hljs-function">ListNode *<span class="hljs-title">findMid</span><span class="hljs-params">(ListNode *head)</span> </span>&#123;<br>        ListNode *fast = head, *slow = head;<br>        <span class="hljs-comment">//快慢指针，fast 走两步，slow 走一步</span><br>        <span class="hljs-keyword">while</span> (fast-&gt;next) &#123;<br>            fast = fast-&gt;next-&gt;next;<br>            <span class="hljs-comment">//如果 fast 为空，提前退出，避免在条件中对 fast 进行冗余判断出错</span><br>            <span class="hljs-keyword">if</span> (!fast)<br>                <span class="hljs-keyword">break</span>;<br>            slow = slow-&gt;next;<br>        &#125;<br>        <span class="hljs-keyword">return</span> slow;<br>    &#125;<br><br>    <span class="hljs-function">ListNode *<span class="hljs-title">reverseList</span><span class="hljs-params">(ListNode *head)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (!head)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>        ListNode *pre = <span class="hljs-literal">NULL</span>, *p = head, *next = head-&gt;next;<br>        <span class="hljs-comment">//三指针遍历反转</span><br>        <span class="hljs-keyword">while</span> (p) &#123;<br>            next = p-&gt;next;<br>            p-&gt;next = pre;<br>            pre = p;<br>            p = next;<br>        &#125;<br>        <span class="hljs-keyword">return</span> pre;<br>    &#125;<br><br>    <span class="hljs-function">ListNode *<span class="hljs-title">mergeTwoList</span><span class="hljs-params">(ListNode *aHead, ListNode *bHead)</span> </span>&#123;<br>        ListNode *head = <span class="hljs-keyword">new</span> <span class="hljs-built_in">ListNode</span>(<span class="hljs-number">0</span>), *tail = head;<br>        ListNode *aPtr = aHead, *bPtr = bHead;<br>        <span class="hljs-keyword">while</span> (aPtr &amp;&amp; bPtr) &#123;<br>            <span class="hljs-comment">//合并 a 的一个元素</span><br>            tail-&gt;next = aPtr;<br>            aPtr = aPtr-&gt;next;<br>            tail = tail-&gt;next;<br>            <span class="hljs-comment">//合并 b 的一个元素</span><br>            tail-&gt;next = bPtr;<br>            bPtr = bPtr-&gt;next;<br>            tail = tail-&gt;next;<br>        &#125;<br>        tail-&gt;next = aPtr ? aPtr : bPtr;<br>        <span class="hljs-keyword">return</span> head-&gt;next;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -352,7 +386,7 @@
                     
                       <a href="/p/8d26/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">剑指Offer Day-10 动态规划（中等）</span>
+                        <span class="hidden-mobile">剑指Offer Day 10 动态规划（中等）</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -361,7 +395,7 @@
                     
                     
                       <a href="/p/cf0/">
-                        <span class="hidden-mobile">剑指Offer Day-28 搜索与回溯算法（困难）</span>
+                        <span class="hidden-mobile">剑指Offer Day 28 搜索与回溯算法（困难）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
